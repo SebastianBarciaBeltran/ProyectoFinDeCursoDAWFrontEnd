@@ -1,0 +1,107 @@
+<div class="container-fluid pb-3 px-4">
+
+    <div class="row">
+
+        <div class="d-none d-lg-block col-xl-3"></div>
+
+        <div class="col col-xl-9">
+
+            <p class="text-start lh-lg text-justify">En Opti<span class="text-primary">√</span>ista miramos por ti y por tus necesidades en materia de salud visual. para cualquier duda y/o recomendación rellena el siguiente formulario y nos ponenemos en contacto contigo lo antes posible: </p>
+
+            <!-- START CONTACT FORM -->
+            <form autocomplete="off" [formGroup]="contactForm" (ngSubmit)="contact()" >
+
+                    <!-- start errors backend -->
+                    <div class="alert alert-danger" role="alert" *ngIf="backendErrors" >
+                        {{ backendErrorMsg }}
+                    </div>
+                    <!-- end errors backend -->
+
+                    <!-- start name -->
+                    <div class="mb-3 relative">
+                        <i class="pi pi-user text-dark fw-bold absoluteAndMore"></i>
+                        <input class="form-control inputOfLoginRegist" type="text" placeholder="Ingrese su nombre y apellidos" formControlName="name">
+                    </div>
+                    <div class="alert alert-danger mt-2" role="alert" *ngIf="campoNovalido('name')" >
+                        Campo obligatorio.
+                    </div>
+                    <!-- end name -->
+                
+        
+                    <!-- start telephone -->
+                    <div class="mb-3 relative">
+                        <i class="pi pi-phone text-dark fw-bold absoluteAndMore"></i>
+                        <input class="form-control inputOfLoginRegist" type="text" placeholder="Ingrese su teléfono" formControlName="telephone">
+                        <div class="alert alert-danger mt-2" role="alert" *ngIf="campoNovalido('telephone')" >
+                            Campo obligatorio - mínimo 9 caracteres.
+                        </div>
+                    </div>
+                 
+                    <!-- end telephone -->
+        
+                    <!-- start email -->
+                    <div class="mb-3 relative">
+                        <i class="far fa-envelope absoluteAndMore"></i>
+                        <input class="form-control inputOfLoginRegist" type="email" placeholder="Ingrese su email" formControlName="email">
+                        <div class="alert alert-danger mt-2" role="alert" *ngIf="campoNovalido('email')" >
+                            Campo obligatorio - email no válido.
+                        </div>
+                    </div>
+                    
+                    <!-- end email -->
+
+                    <!-- start text -->
+                    <div class="mb-3">
+                        <textarea class="form-control" placeholder="Mensaje" rows="3" formControlName="text"></textarea>
+                        <div class="alert alert-danger mt-2" role="alert" *ngIf="campoNovalido('text')" >
+                            Campo obligatorio - desciba por que nos contacta
+                        </div>
+                    </div>
+                    <!-- end text -->
+                    
+                    <!-- start privacityAndConditions -->
+                    <div class="form-check mb-3">
+                        <input class="form-check-input" type="checkbox" formControlName="privacityAndConditions">
+                        <label class="form-check-label" for="flexCheckDefault">
+                            He leído y acepto la <a href="" class="text-primario">Política de Privacidad.</a> las <a href="" class="text-primario">Condiciones de uso.</a>
+                        </label>
+                        <div class="alert alert-danger mt-2" role="alert" *ngIf="campoNovalido('privacityAndConditions')" >
+                            Tiene que aceptar los términos y condiciones de uso.
+                        </div>
+                    </div>
+                    <!-- end privacityAndConditions -->
+        
+                    <!-- start submit -->
+                    <button type="submit" class="btn btn-primario borderRadius text-uppercase align-self-center">enviar</button>
+                    <!-- end submit -->
+                    
+            </form>
+            <!-- END CONTACT FORM -->
+
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <h5 class="text-start fw-light mb-3 text-uppercase">Horario</h5>
+                    <p class="text-start">Lunes a viernes: 10:00 - 14:00 | 17:00 - 20:30</p>
+                    <p class="text-start">Sábado: 10:00 - 14:00</p>
+                    <p class="text-start"><i class="pi pi-phone text-primario"></i> Teléfono: +34 952 50 80 26</p>
+                    <p class="text-start"><i class="fas fa-envelope text-primario"></i> Mail: info@optivista.es</p>
+                </div>
+
+                <div class="col-12 col-md-6">
+                    <h5 class="text-center fw-light mb-3 text-uppercase">¿Donde estamos?</h5>
+                    <iframe class="w-100"
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6391.68796164998!2d-4.1035102018846406!3d36.77431014015358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd724722d3b4964f%3A0x9bd308ea0b25f06d!2sOPTIVISTA!5e0!3m2!1ses!2ses!4v1637513507119!5m2!1ses!2ses"
+                        height="330" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+            </div>
+
+          
+
+        </div>
+
+    </div>
+</div>
+
+
+
+<!-- <p class="text-start lh-lg text-justify">En Opti<span class="text-primary">√</span>ista miramos por ti y por tus necesidades en materia de salud visual. para cualquier duda y/o recomendación rellena el siguiente formulario y nos ponenemos en contacto contigo lo antes posible: </p> -->

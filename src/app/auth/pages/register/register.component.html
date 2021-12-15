@@ -1,0 +1,68 @@
+<div class="centro text-center">
+
+    <div class="form-signin">
+        <h1 class="display-1 text-secondary">Opti<span class="text-primario">√</span>ista</h1>
+        <h5 class="fs-5 fw-light my-3">¡Hola! Introduce tus datos personales y únete a nosotros</h5>
+          
+        <form autocomplete="off" [formGroup]="registerForm" (ngSubmit)="crearUsuario()" >
+
+            <!-- start errors backend -->
+            <div class="alert alert-danger" role="alert" *ngIf="backendErrors" >
+                {{ backendErrorMsg }}
+            </div>
+            <!-- end errors backend -->
+            <!-- start password diferents -->
+            <div class="alert alert-danger" role="alert" *ngIf="contrasenasNovalidas()" >
+                Las contraseñas no son iguales
+            </div>
+            <!-- end password diferents -->
+           
+            <div class="form-floating mb-2">
+                <input type="text" class="form-control" id="floatinText" placeholder="Nombre completo" formControlName="name">
+                <label for="floatingInput">Nombre completo</label>
+                <div class="alert alert-danger mt-2" role="alert" *ngIf="campoNovalido('name')" >
+                    Campo obligatorio
+                </div>
+            </div>
+           
+            <div class="form-floating mb-2">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="email">
+                <label for="floatingInput">Email</label>
+                <div class="alert alert-danger mt-2" role="alert" *ngIf="campoNovalido('email')" >
+                    Campo obligatorio - email no válido.
+                </div>
+            </div>
+           
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" formControlName="password">
+                <label for="floatingPassword">Contraseña</label>
+                <div class="alert alert-danger mt-2" role="alert" *ngIf="campoNovalido('password')" >
+                    Campo obligatorio - mínimo 6 caracteres.
+                </div>
+            </div>
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword2" placeholder="confirme su contraseña" formControlName="password2">
+                <label for="floatingPassword">Confirme su contraseña</label>
+            </div>
+          
+            <div class="text-start mb-3">
+                <div class="mb-1">
+                    <input type="checkbox" value="true" formControlName="newsLetter"> Deseo recibir información sobre novedades y ofertas.
+                </div>
+
+                <div >
+                    <input type="checkbox" value="true" formControlName="terminos"> He leído y acepto la <a href="" class="text-primario">Política de Privacidad.</a> las <a href="" class="text-primario">Condiciones de uso.</a>
+                </div>
+                <div class="alert alert-danger mt-2" role="alert" *ngIf="aceptaTerminos()">
+                    Tiene que aceptar los términos y condiciones de uso.
+                </div>
+            </div>
+            <button class="w-100 btn btn-lg btn-primario color mb-2" type="submit">Entrar</button>
+            <a class="text-primarioHover text-primario" routerLink="/customer/login">¿tienes cuenta?</a>
+            <p class="mt-5 mb-3 text-muted">&copy; 2021–2022</p>
+        </form>
+    </div>
+
+
+</div>
+

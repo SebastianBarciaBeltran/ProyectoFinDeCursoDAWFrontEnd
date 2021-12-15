@@ -1,1 +1,57 @@
-/* You can add global styles to this file, and also import other style files */
+/* GLOBAL STYLES OF OPTIVISTA FRONTEND */
+html, body { margin: 0; padding: 0; height: 100%; background-color: #F6F6F3; font-family: Roboto, "Helvetica Neue", sans-serif;}
+.optiTextColor1{ color: #D81849; }
+.optiTextColor2{ color: #87888A; }
+.optiTextColor3{ color: #F6F6F3; }
+
+
+/* START PERSONAL COLORS */
+       /* TEXT */
+.text-primario{ color: #D81849; }
+.text-primarioHover:hover{
+       color: #D81849 !important;
+}
+
+       /* BACKGROUND */
+.bg-primario  { background-color: #D81849; }
+.bg-secundario{ background-color: #F6F6F3; }
+
+       /* BUTTONS */
+.btn-primario  { background-color: #D81849 !important; color: white !important; }
+.btn-outline-primario { border: 1px solid #D81849 !important;}
+
+/* HOVER FOR ITEM OF NAVBAR */
+.phover:hover{
+border-bottom: solid 1px #D81849 !important;
+}
+
+/* HOVER FOR BUTTONS */
+.buttonHover:hover{
+       background-color: #D81849 !important; 
+       color: white !important;
+}
+/* END PERSONAL COLORS */
+
+/* for all buttons */
+.borderRadius{
+       border-radius: 25px !important;
+}
+
+/* OTHER FILTERS */
+.text-justify{
+       text-align: justify !important;
+}
+/* CURSORPOINTER */
+.pointer{
+    cursor: pointer;
+}
+
+/* MAX WITH FOR THE ALL TEXT */
+.width-limit-m {
+    max-width: 600px;
+}
+
+/* SIZE ICONS FOR MOVILE OF NAV */
+.SizeMovileNave{
+    font-size: 1.5rem;
+}

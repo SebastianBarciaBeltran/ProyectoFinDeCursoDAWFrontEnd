@@ -1,0 +1,57 @@
+<div class="centro text-center">
+
+    <div class="form-signin">
+        <h1 class="display-1 text-secondary">Opti<span class="text-primario">√</span>ista</h1>
+        <h5 class="fs-5 fw-light my-3">Por favor, inicie sesión</h5>
+            
+        <form autocomplete="off" [formGroup]="loginForm" (ngSubmit)="login()">
+
+            <!-- start errors backend -->
+            <div class="alert alert-danger" role="alert" *ngIf="backendErrors" >
+                {{ backendErrorMsg }}
+            </div>
+           <!-- end errors backend -->
+
+            <!-- start email-->
+                <div class="form-floating" >
+                    <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com" formControlName="email">
+                    <label for="floatingInput">Email</label>
+                    <div class="alert alert-danger mt-2" role="alert" *ngIf="campoNovalido('email')">
+                        Campo obligatorio - email no válido.
+                    </div>
+                </div>
+            <!-- end email -->
+            <!-- start password -->
+            <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password" formControlName="password">
+                <label for="floatingPassword">Contraseña</label>
+                <div class="alert alert-danger mt-2" role="alert" *ngIf="campoNovalido('password')">
+                    Campo obligatorio - mínimo 6 caracteres.
+                </div>
+            </div>
+            <!-- end password -->
+            
+            <!-- start remeber -->
+            <div class="checkbox mb-3">
+                <label>
+                    <input type="checkbox" value="true" formControlName="remember"> Recuerdame
+                </label>
+            </div>
+            <!-- end remeber -->
+
+            <button class="w-100 btn btn-lg btn-primario color mb-3" type="submit">Entrar</button>
+
+            <!-- GoogleSignIn -->
+            <div class="d-flex justify-content-center mb-2">
+                <div id="my-signin2"></div>
+            </div>
+            <!-- GoogleSignIn -->
+            
+            <p>¿no tienes cuenta? <a class="text-primarioHover text-primario" routerLink="/customer/register">registrate</a></p>
+            <p class="mt-5 mb-3 text-muted">&copy; 2021–2022</p>
+        </form>
+    </div>
+
+
+</div>
+

@@ -1,0 +1,15 @@
+.bg{
+    background-image: url('../../../../assets/images/newsLetter.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.sizeIcon{
+    width: 45px;
+    height: 45px;
+    font-size: 30px;
+}
+
+.max-width{
+}
+
