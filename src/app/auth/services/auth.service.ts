@@ -22,7 +22,6 @@ export class AuthService {
 
   public user !: User;
 
-  public isLogged : boolean = false;
 
   constructor(private _http: HttpClient, private _router: Router, private ngZone: NgZone) { }
 
@@ -44,7 +43,6 @@ export class AuthService {
     }
   }
 
-  
 
   // --- FUNCTIONS --- // 
 
@@ -70,7 +68,6 @@ export class AuthService {
                .pipe(
                  tap( (resp : any) => {
                     localStorage.setItem('token', resp.token );
-                    this.isLogged = true;
                  })
                );
   }
@@ -80,7 +77,6 @@ export class AuthService {
                .pipe(
                  tap( (resp : any) => {
                    localStorage.setItem('token', resp.token );
-                   this.isLogged = true;
                  })
                );
   }
@@ -90,7 +86,6 @@ export class AuthService {
                .pipe(
                   tap( (resp : any) => {
                     localStorage.setItem('token', resp.token );
-                    
                   })
                 );
   }
@@ -107,7 +102,7 @@ export class AuthService {
         // this.user = new User(name, email, role, newsLetter, '', dateOfRegister, img, google, '', '', '', uid );
         this.user = new User(name, email, role, newsLetter, '' , dateOfRegister, img, google, birthDate, phone, sexo, uid );
         localStorage.setItem('token', resp.token );
-        this.isLogged = true;
+       
         return true;
       }),
       catchError( err => of( false ))
@@ -118,9 +113,10 @@ export class AuthService {
 
   logout(){
     localStorage.removeItem('token');
+  
     this.auth2.signOut().then( () => {
       this.ngZone.run(()=> {
-        this._router.navigateByUrl('home');
+        this._router.navigateByUrl('/es');;
       })
     });
     

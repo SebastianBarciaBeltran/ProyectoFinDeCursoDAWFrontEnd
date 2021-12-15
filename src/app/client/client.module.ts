@@ -10,9 +10,15 @@ import { UserloggedBodyComponent } from './pages/userLogged/userlogged-body/user
 import { ClientSettingsComponent } from './pages/userLogged/client-settings/client-settings.component';
 import { ClientcontactComponent } from './pages/clientcontact/clientcontact.component';
 import { ReactiveFormsModule } from '@angular/forms';
-
-
-
+import { AngularPrimeNgModule } from '../angular-prime-ng/angular-prime-ng.module';
+import { ClientnosotrosComponent } from './pages/clientnosotros/clientnosotros.component';
+import { ClientpreguntasfrecuentesComponent } from './pages/clientpreguntasfrecuentes/clientpreguntasfrecuentes.component';
+import { ClientgarantiasComponent } from './pages/clientgarantias/clientgarantias.component';
+import { ClientserviciosComponent } from './pages/clientservicios/clientservicios.component';
+import { ClientdescuentosComponent } from './pages/clientdescuentos/clientdescuentos.component';
+import { ClientbeneficiariosComponent } from './pages/clientbeneficiarios/clientbeneficiarios.component';
+import { GafasDestacadasComponent } from './components/gafas-destacadas/gafas-destacadas.component';
+import { MarcasComponent } from './components/marcas/marcas.component';
 
 
 @NgModule({
@@ -21,12 +27,21 @@ import { ReactiveFormsModule } from '@angular/forms';
     ClientBodyComponent,
     ClientSettingsComponent,
     UserloggedBodyComponent,
-    ClientcontactComponent
+    ClientcontactComponent,
+    ClientnosotrosComponent,
+    ClientpreguntasfrecuentesComponent,
+    ClientgarantiasComponent,
+    ClientserviciosComponent,
+    ClientdescuentosComponent,
+    ClientbeneficiariosComponent,
+    GafasDestacadasComponent,
+    MarcasComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     ClientRoutingModule,
+    AngularPrimeNgModule,
     SharedModule
   ]
 })

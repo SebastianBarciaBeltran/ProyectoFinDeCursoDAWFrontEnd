@@ -1,5 +1,5 @@
 /* GLOBAL STYLES OF OPTIVISTA FRONTEND */
-html, body { margin: 0; padding: 0; height: 100%; background-color: #F6F6F3; font-family: Roboto, "Helvetica Neue", sans-serif;}
+html, body { margin: 0; padding: 0; background-color: #F6F6F3;  font-family: Roboto, "Helvetica Neue", sans-serif;}
 .optiTextColor1{ color: #D81849; }
 .optiTextColor2{ color: #87888A; }
 .optiTextColor3{ color: #F6F6F3; }

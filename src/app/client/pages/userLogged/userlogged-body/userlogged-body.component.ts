@@ -13,7 +13,7 @@ export class UserloggedBodyComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-
+    
   }
 
 

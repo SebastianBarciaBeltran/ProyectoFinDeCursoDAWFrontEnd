@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { AuthService } from 'src/app/auth/services/auth.service';
+
 @Component({
   selector: 'app-client-settings',
   templateUrl: './client-settings.component.html',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientSettingsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _authService: AuthService
+
+  ) { }
 
   ngOnInit(): void {
+  }
+
+
+  logout(){
   }
 
 }

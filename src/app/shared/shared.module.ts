@@ -26,8 +26,7 @@ import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule,
-    ClientRoutingModule
+    AuthRoutingModule
   ]
 })
 export class SharedModule { }

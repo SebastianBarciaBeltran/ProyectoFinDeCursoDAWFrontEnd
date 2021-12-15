@@ -9,32 +9,35 @@
 
 
 <div class="d-flex flex-column align-items-center">
-    <h1 class="animate__animated animate__backInDown display-1 text-uppercase fw-bold  py-1">estrena <span class="text-primario fw-normal">gafas</span></h1>
+    <h1 class="animate__animated animate__fadeIn display-1 text-uppercase fw-bold  py-1">estrena <span class="text-primario fw-normal">gafas</span></h1>
     <p class="text-muted text-center width-limit-m">Aunque nos encanten unas gafas, no todas nos quedan bien. Busca entre todos nuestros modelos y encuentra las gafas que <span class="fw-bold">mejor definan tu personalidad.</span></p>
     <a href="#" class="btn btn-primario my-3 borderRadius">Ver todas las gafas</a>
     <img class="d-none d-xl-block container my-1" src="assets/images/main.jpg" alt="">
-
 </div>
 
+
+<!-- start glasess -->
+<app-gafas-destacadas></app-gafas-destacadas>
+<!-- end glasess -->
 
 
 <!-- start wich glass -->
 <div class="container my-5">
     <div class="row">
         
-        <div class="col-xs-12 col-sm-6 mb-3 card p-0 rounded">
+        <div class="col-xs-12 col-sm-6 mb-3 card p-0 rounded pointer">
             <img src="assets/images/girl.jpg" class="img-fluid pointer rounded" alt="...">
             <div class="card-body bg-secundario">
                 <h5 class="card-title text-uppercase">Gafas de Sol</h5>
-                <p>Escoge entre miles de gafas sol</p>
+                <p class="fw-light fs-5">Escoge entre miles de gafas sol</p>
             </div>
         </div>
 
-        <div class="col-xs-12 col-sm-6 mb-3 card p-0 rounded">
+        <div class="col-xs-12 col-sm-6 mb-3 card p-0 rounded pointer">
             <img src="assets/images/boy.jpg" class="img-fluid pointer rounded" alt="...">
             <div class="card-body bg-secundario">
                 <h5 class="card-title text-uppercase">Gafas graduadas</h5>
-                <p>Escoge entre miles de gafas graduadas</p>
+                <p class="fw-light fs-5">Escoge entre miles de gafas graduadas</p>
             </div>
         </div>
     </div>
@@ -46,7 +49,7 @@
     <div class="col d-flex flex-column align-items-center py-2">
         <img class="" src="assets/images/calendar.png" alt="">
         <h2 class="text-primario mt-3">Pide tu Cita Online</h2>
-        <p class="width-limit-m text-center">Disfruta de nuestros servicios en Opti<span class="text-primario">√</span>ista estás en buenas manos, nuestros
+        <p class="width-limit-m text-center fs-5">Disfruta de nuestros servicios en Opti<span class="text-primario">√</span>ista estás en buenas manos, nuestros
             profesionales ópticos optometristas estan deseando antenderte 
         </p>
         <a href="#" class="btn btn-primario my-2 borderRadius text-uppercase">Pide tu cita</a>
@@ -54,3 +57,7 @@
     </div>
 </div>
 <!-- end booking -->
+
+<!-- start brands -->
+<app-marcas></app-marcas>
+<!-- end brands -->

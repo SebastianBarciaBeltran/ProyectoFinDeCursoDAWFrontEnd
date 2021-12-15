@@ -8,13 +8,15 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
-    isLogged : boolean = false;
-    
-    
-  constructor(public _authService : AuthService) { }
+  isLogged : boolean = false;
+
+  constructor(public _authService : AuthService) { 
+   
+  }
 
   ngOnInit(): void {
-    this.isLogged = this._authService.isLogged;
+    if (localStorage.getItem('token')) this.isLogged = true;
+
   }
 
 }

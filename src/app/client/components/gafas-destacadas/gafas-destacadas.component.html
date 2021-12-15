@@ -1,0 +1,21 @@
+<div class="container-fluid my-5 py-2">   
+    <div class="row">
+         <p-carousel [value]="products" styleClass="custom-carousel" [showIndicators]="false" [numVisible]="5" [numScroll]="1" [circular]="true" [autoplayInterval]="3000" [responsiveOptions]="responsiveOptions">
+             <ng-template pTemplate="header">
+                 <h3 class="text-start py-4 fw-light ">Descubre nuestros <span class="text-uppercase text-primario">top</span> ventas - Unidades limitadas</h3>
+             </ng-template>
+             <ng-template let-product pTemplate="item">
+                 <div class="product-item">
+                     <div class="product-item-content">
+                         <div class="p-mb-3">
+                             <img src="assets/images/gafas/{{product.image}}" alt="imagen.gafas" class="img-fluid" />
+                         </div>
+                         <div>
+                            <img src="assets/images/marcas/{{product.image2}}" class="img-fluid w-50 mx-auto d-block" />
+                         </div>
+                     </div>
+                 </div>
+             </ng-template>
+         </p-carousel>
+    </div>
+ </div>

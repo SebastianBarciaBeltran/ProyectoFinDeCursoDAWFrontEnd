@@ -41,21 +41,20 @@ export class RegisterComponent implements OnInit {
    crearUsuario(){
     this.formSubmitted = true;
 
-    if ( this.registerForm.invalid ) {
+    if ( this.registerForm.valid && this.registerForm.get('terminos')?.value == true ) {
+          // CREAMOS AL USUARIO
+          this._authService.register( this.registerForm.value )
+          .subscribe( resp => {
+              this.backendErrors = false;
+              // una vez inicie sesion lo llevamos al home 
+              this._router.navigateByUrl('/es/account');
+            }, ( err ) => {
+              this.backendErrors = true;
+              this.backendErrorMsg = err.error.msg;
+            });
+    } else {
       return ;
-    } 
-
-    // CREAMOS AL USUARIO
-    this._authService.register( this.registerForm.value )
-        .subscribe( resp => {
-            this.backendErrors = false;
-            // una vez inicie sesion lo llevamos al home 
-            this._router.navigateByUrl('/home/account');
-          }, ( err ) => {
-            this.backendErrors = true;
-            this.backendErrorMsg = err.error.msg;
-          });
-    
+    }
   }
 
    // FUNCTION TO SHOW IF ERROR EXIST

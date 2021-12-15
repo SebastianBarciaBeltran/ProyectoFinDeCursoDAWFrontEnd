@@ -2,6 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
+import { Contact } from '../../interfaces/contact.interface';
+
+import { NodemailerService } from '../../services/nodemailer.service';
+
 @Component({
   selector: 'app-clientcontact',
   templateUrl: './clientcontact.component.html',
@@ -10,8 +14,16 @@ import { Router } from '@angular/router';
 export class ClientcontactComponent implements OnInit {
 
   formSubmitted : boolean = false;
+
   backendErrors : boolean = false;
   backendErrorMsg : string = '';
+
+  successAlert : boolean = false; 
+  errorAlert   : boolean = false;
+
+  display: boolean = false;
+
+
 
   contactForm : FormGroup = this.fb.group({
     name                  : [ '', [Validators.required]],
@@ -23,14 +35,40 @@ export class ClientcontactComponent implements OnInit {
 
   constructor(private fb: FormBuilder, 
               private _router: Router, 
-
+              private _nodemailerService: NodemailerService
   ) { }
 
   ngOnInit(): void {
-
+    this.errorAlert = false;
+    this.successAlert = false;
   }
 
   contact(){
+    this.formSubmitted = true;
+
+    if ( this.contactForm.valid && this.contactForm.get('privacityAndConditions')?.value == true ) {
+   
+        const contact : Contact = this.contactForm.value;
+
+        this._nodemailerService.sendContactEmail( contact )
+        .subscribe(
+          (resp) => {
+            if (resp == true) {
+              this.contactForm.reset();
+              this.formSubmitted = false;
+              this.successAlert = true;
+            } else {
+              this.errorAlert = true;
+              this.successAlert = false;
+            }
+          }, (err) => {
+            console.log( err );
+          });
+
+    } else{
+      return ;
+    }
+    
 
   }
 
@@ -48,7 +86,7 @@ export class ClientcontactComponent implements OnInit {
   // FUNCTION TO CHECK IF THE CHECKBOK OF CONDITIOS IS CHECKED OR NOT
   aceptaTerminos(){
     // SI SE HA POSTEADO Y ES FALSO LOS TERMINOS MOSTRAMOS ERROR
-    return !this.contactForm.get('terminos')?.value && this.contactForm;
+    return !this.contactForm.get('privacityAndConditions')?.value && this.formSubmitted;
   }
 
 }

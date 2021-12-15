@@ -1,7 +1,7 @@
 <div class="centro text-center">
 
     <div class="form-signin">
-        <h1 class="display-1 text-secondary">Opti<span class="text-primario">√</span>ista</h1>
+        <h1 class="display-1 text-secondary animate__animated animate__fadeIn">Opti<span class="text-primario">√</span>ista</h1>
         <h5 class="fs-5 fw-light my-3">¡Hola! Introduce tus datos personales y únete a nosotros</h5>
           
         <form autocomplete="off" [formGroup]="registerForm" (ngSubmit)="crearUsuario()" >
@@ -58,7 +58,7 @@
                 </div>
             </div>
             <button class="w-100 btn btn-lg btn-primario color mb-2" type="submit">Entrar</button>
-            <a class="text-primarioHover text-primario" routerLink="/customer/login">¿tienes cuenta?</a>
+            <a class="text-primarioHover text-primario" [routerLink]="[ '/es/customer/login']">¿tienes cuenta?</a>
             <p class="mt-5 mb-3 text-muted">&copy; 2021–2022</p>
         </form>
     </div>

@@ -1,7 +1,7 @@
 <div class="centro text-center">
 
     <div class="form-signin">
-        <h1 class="display-1 text-secondary">Opti<span class="text-primario">√</span>ista</h1>
+        <h1 class="display-1 text-secondary animate__animated animate__fadeIn">Opti<span class="text-primario">√</span>ista</h1>
         <h5 class="fs-5 fw-light my-3">Por favor, inicie sesión</h5>
             
         <form autocomplete="off" [formGroup]="loginForm" (ngSubmit)="login()">
@@ -47,11 +47,10 @@
             </div>
             <!-- GoogleSignIn -->
             
-            <p>¿no tienes cuenta? <a class="text-primarioHover text-primario" routerLink="/customer/register">registrate</a></p>
+            <p>¿no tienes cuenta? <a class="text-primarioHover text-primario" [routerLink]="[ '/es/customer/register']">registrate</a></p>
             <p class="mt-5 mb-3 text-muted">&copy; 2021–2022</p>
         </form>
     </div>
-
 
 </div>
 
