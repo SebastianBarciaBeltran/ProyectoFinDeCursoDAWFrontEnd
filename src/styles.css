@@ -1,4 +1,6 @@
 /* GLOBAL STYLES OF OPTIVISTA FRONTEND */
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
 html, body { margin: 0; padding: 0; background-color: #F6F6F3;  font-family: Roboto, "Helvetica Neue", sans-serif;}
 .optiTextColor1{ color: #D81849; }
 .optiTextColor2{ color: #87888A; }
@@ -31,6 +33,9 @@ color: #D81849 !important;
 .rutaActiva{
        border-bottom: 1px solid #D81849 !important;
 }
+.rutaActivaAdmin{
+       color: #D81849 !important;
+}
 /* HOVER FOR BUTTONS */
 .buttonHover:hover{
        background-color: #D81849 !important; 
@@ -61,3 +66,6 @@ color: #D81849 !important;
 .SizeMovileNave{
     font-size: 1.5rem;
 }
+
+
+

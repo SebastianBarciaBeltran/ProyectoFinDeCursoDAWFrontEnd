@@ -44,10 +44,7 @@ export class ClientSettingsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.user.birthDate)
-    console.log(this.user.sexo)
-    console.log(this.user.phone)
-    
+
     if (this.user.birthDate != undefined && this.user.sexo != undefined && this.user.phone != undefined) {
         this.showNotificaction = false;
     } 
