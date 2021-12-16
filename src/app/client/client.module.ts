@@ -4,7 +4,7 @@ import { ClientRoutingModule } from './client-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { SharedModule } from '../shared/shared.module';
-import { AngularPrimeNgModule } from '../angular-prime-ng/angular-prime-ng.module';
+import { AngularPrimeNgModule } from '../primeNg/angular-prime-ng.module';
 
 import { ClienthomeComponent }                from './pages/clienthome/clienthome.component';
 import { ClientBodyComponent }                from './pages/client-body/client-body.component';
@@ -46,7 +46,7 @@ import { ClientMiSaludComponent }             from './pages/userLogged/client-mi
     ReactiveFormsModule,
     ClientRoutingModule,
     AngularPrimeNgModule,
-    SharedModule
+    SharedModule,
   ]
 })
 export class ClientModule { }

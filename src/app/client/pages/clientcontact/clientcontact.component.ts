@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 
 import { Contact } from '../../interfaces/contact.interface';
 
+import { ConfirmationService } from 'primeng/api';
+import { MessageService }      from 'primeng/api';
 import { NodemailerService } from '../../services/nodemailer.service';
 
 @Component({
@@ -18,8 +20,7 @@ export class ClientcontactComponent implements OnInit {
   backendErrors : boolean = false;
   backendErrorMsg : string = '';
 
-  successAlert : boolean = false; 
-  errorAlert   : boolean = false;
+ 
 
   display: boolean = false;
 
@@ -27,20 +28,20 @@ export class ClientcontactComponent implements OnInit {
 
   contactForm : FormGroup = this.fb.group({
     name                  : [ '', [Validators.required]],
-    telephone             : [ '', [Validators.required, Validators.minLength(9)]],
+    telephone             : [ '', [Validators.required, Validators.minLength(9), Validators.maxLength(9) ]],
     email                 : [ '', [Validators.required, Validators.email ]],
-    text                  : [ '', [Validators.required]],
+    text                  : [ '', [Validators.required, Validators.minLength(20)]],
     privacityAndConditions: [ false, [Validators.required]],
   });
 
   constructor(private fb: FormBuilder, 
               private _router: Router, 
-              private _nodemailerService: NodemailerService
+              private _nodemailerService: NodemailerService,
+              private confirmationService: ConfirmationService,
+              private messageService: MessageService, 
   ) { }
 
   ngOnInit(): void {
-    this.errorAlert = false;
-    this.successAlert = false;
   }
 
   contact(){
@@ -56,15 +57,13 @@ export class ClientcontactComponent implements OnInit {
             if (resp == true) {
               this.contactForm.reset();
               this.formSubmitted = false;
-              this.successAlert = true;
-            } else {
-              this.errorAlert = true;
-              this.successAlert = false;
+              this.messageService.add({severity:'success', summary: 'Se han enviado los datos correctamente ¡Gracias!', life: 3000},);
             }
           }, (err) => {
             console.log( err );
           });
-
+          
+          
     } else{
       return ;
     }

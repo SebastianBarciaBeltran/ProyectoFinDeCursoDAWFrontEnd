@@ -1,0 +1,18 @@
+/*  STYLES OF ICON PLACEHOLDER Of CONTAC */
+.relative{
+    position: relative;
+    left: 0px;
+}
+
+.absoluteAndMore{
+    position: absolute;
+    left: 0px;
+    padding: 8px;
+    opacity: 0.4;
+    margin-top: 0.5px;
+}
+
+
+.inputOfLoginRegist{
+    padding-left: 30px;
+}

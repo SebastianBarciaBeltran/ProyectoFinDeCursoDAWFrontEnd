@@ -1,20 +1,8 @@
+<p-toast></p-toast>
 <div class="container">
 
     <div class="row text-center my-3">
-        <!-- success -->
-        <div class="alert alert-success fs-4 text-center text-justify" role="alert" *ngIf="successAlert">
-            <i class="pi pi-check fs-4"></i> Se han enviado los datos correctamente ¡Gracias!
-            <!-- <p class="fs-4">Se han enviado los datos correctamente ¡Gracias!</p> -->
-        </div>
-        <!-- success -->
-        <!-- error -->
-        <div class="alert alert-danger fs-4 text-center text-justify" role="alert" *ngIf="errorAlert">
-            <i class="pi pi-exclamation-triangle fs-4"></i> ¡UPS! algo no ha ido bien, intentelo de nuevo
-            <!-- <p class="fs-4">Se han enviado los datos correctamente ¡Gracias!</p> -->
-        </div>
-        <!-- error -->
-
-
+    
         <div class="col-12 mb-3">
             <p class="fs-5 text-center animate__animated animate__fadeIn" style="text-align: justify;">En Opti<span class="text-primario">√</span>ista miramos por ti y por tus necesidades en materia de salud visual. para cualquier duda y/o recomendación rellena el siguiente formulario y nos ponenemos en contacto contigo lo antes posible: </p>
         </div>
@@ -67,7 +55,7 @@
                 <div class="mb-3">
                     <textarea class="form-control" placeholder="Mensaje" rows="3" formControlName="text"></textarea>
                     <div class="alert alert-danger mt-2 text-start" role="alert" *ngIf="campoNovalido('text')" >
-                        Campo obligatorio - desciba por que nos contacta
+                        Campo obligatorio - desciba por que nos contacta, mínimo 20 caracteres.
                     </div>
                 </div>
                 <!-- end text -->
@@ -115,3 +103,4 @@
 
 </div>
 
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>

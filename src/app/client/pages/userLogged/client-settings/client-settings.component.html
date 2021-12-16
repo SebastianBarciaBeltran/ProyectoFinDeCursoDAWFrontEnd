@@ -1,60 +1,168 @@
+<p-toast></p-toast>
 <div class="container bg-secundario my-3">
-    <div class="row">
-        <div class="col d-flex flex-column justify-content-center text-center text-xl-start py-3">
-            <h1 class="px-4 fw-light animate__animated animate__fadeIn">Gestionar mi cuenta</h1>
-            <p class="px-4 fw-normal fs-5">Simplente modifique los siguientes campos y pulse guardar, sus datos se actualizaran en nuestro sistema. </p>
-        </div>
+  <div class="row">
+    <div class="col d-flex flex-column justify-content-center text-center text-xl-start py-3">
+      <h1 class="px-4 fw-light animate__animated animate__fadeIn">Gestionar mi cuenta</h1>
+      <p class="px-4 fw-normal fs-5">Simplente modifique los siguientes campos y pulse guardar, sus datos se
+        actualizaran en nuestro sistema. </p>
     </div>
+  </div>
 </div>
 
 <div class="container mb-3">
   <div class="row">
-      
-    <div class="col-12 col-sm-4 col-md-4 col-lg-2">
+
+    <div class="col-12 col-sm-4  col-lg-2 my-2">
+     
       <ul class="nav flex-column border">
         <li class="nav-item">
-          <a class="nav-link text-dark textHover phover fs-5" aria-current="page" [routerLink]="[ '/es/account/inicio']" routerLinkActive="rutaActiva">Inicio</a>
+          <a class="nav-link text-dark textHover phover fs-5" aria-current="page" [routerLink]="[ '/es/account/inicio']"
+            routerLinkActive="rutaActiva">Inicio</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark textHover phover fs-5" aria-current="page" [routerLink]="[ '/es/account/mi-salud']" routerLinkActive="rutaActiva">Mi salud</a>
+          <a class="nav-link text-dark textHover phover fs-5" aria-current="page"
+            [routerLink]="[ '/es/account/mi-salud']" routerLinkActive="rutaActiva">Mi salud</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark textHover phover fs-5" [routerLink]="[ '/es/account/mis-citas']" routerLinkActive="rutaActiva" >Mis citas</a>
+          <a class="nav-link text-dark textHover phover fs-5" [routerLink]="[ '/es/account/mis-citas']"
+            routerLinkActive="rutaActiva">Mis citas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark textHover phover fs-5" [routerLink]="[ '/es/account/settings']" routerLinkActive="rutaActiva" ><i class="pi pi-cog text-primario"></i> Ajustes</a>
+          <a class="nav-link text-dark textHover phover fs-5" [routerLink]="[ '/es/account/settings']"
+            routerLinkActive="rutaActiva"><i class="pi pi-cog text-primario"></i> Ajustes<i class="pi pi-bell fs-5" pBadge value="{{ notificaction }}" size="xlarge" severity="danger" *ngIf="showNotificaction"></i></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark textHover phover fs-5" ><i class="pi pi-sign-out text-primario"></i> Logout</a>
+          <a class="nav-link text-dark textHover phover fs-5 border-top" (click)="logout()"><i class="pi pi-sign-out text-primario"></i> Logout</a>
         </li>
       </ul>
+    
     </div>
 
-    <div class="col-12 col-sm-8 col-md-4 col-lg-10">
-        <div class="row">
+    <div class="col-12 col-sm-8  col-lg-10">
 
-          <div class="col-12 col-lg-5">
-              <div class="card p-1">
-                <h4 class="card-title">Avatar</h4>
-                <h6 class="card-subtitle mb-1">Imagen del usuario</h6>
+      <div class="row">
+        <div class="col-12 col-lg-5 my-2">
+          <div class="card p-1 text-center">
+            <h4 class="card-title animate__animated animate__fadeIn fw-light display-6">Avatar</h4>
+            <h6 class="card-subtitle mb-1 fw-light">Imagen del usuario</h6>
 
-                <!-- <img *ngIf="imgTemp" class="rounded-circle float-end mb-1 imgCenter" style="width: 100px; height: 100px;" [src]="imgTemp" alt="" >
-                <img *ngIf="!imgTemp" class="rounded-circle float-end mb-1 imgCenter" style="width: 100px; height: 100px;" [src]="imgUrl" alt="" >
-                -->
-                <input type="file" class="form-control my-3" (change)="cambiarImagen()">
+            <img *ngIf="imgTemp"  class="rounded-circle my-2 mx-auto d-block" style="width: 100px; height: 100px;" [src]="imgTemp" alt="" >
+            <img *ngIf="!imgTemp" class="rounded-circle my-2 mx-auto d-block" style="width: 100px; height: 100px;" [src]="imgUrl" alt="" >
+               
+            <input type="file" class="form-control mt-3" (change)="cambiarImagen($event.target.files[0])">
 
-                <br>
-                <button type="button" class="btn btn-sm btn-primary borderRadius text-uppercase align-self-start" (click)="subirImagen()">Cambiar Imagen</button>
-                <!-- [disabled]="!imagenSubir"  -->
-              </div>
+            <br>
+            <button type="button" class="btn btn-sm btn-primario borderRadius text-uppercase align-self-center mb-3" [disabled]="!imagenSubir"
+              (click)="subirImagen()">Cambiar Imagen</button>
           </div>
-
-          <div class="col bg-dark">
-              d
-          </div>
-
         </div>
+
+        <div class="col-12 col-lg-7 my-2">
+
+          <form autocomplete="off" [formGroup]="updateForm" (ngSubmit)="updateUser()" class="d-flex flex-column">
+
+            <!-- start errors backend -->
+            <div class="alert alert-danger" role="alert" *ngIf="backendErrors">
+              {{ backendErrorMsg }}
+            </div>
+            <!-- end errors backend -->
+            
+            <!-- start pending inputs form -->
+            <div class="alert alert-warning" role="alert" *ngIf="showNotificaction">
+              <i class="pi pi-exclamation-triangle fs-5 mx-2"></i> Por favor complete el formulario de registro lo antes posible
+            </div>
+            <!-- end pending inputs form -->
+
+            <!-- start name -->
+            <div class="mb-3 relative">
+              <i class="pi pi-user text-dark fw-bold absoluteAndMore "></i>
+              <input class="form-control inputOfLoginRegist" type="text" placeholder="Ingrese su nombre y apellidos" formControlName="name">
+            </div>
+            <div class="alert alert-danger mt-2 text-start" role="alert" *ngIf="campoNovalido('name')" >
+              Campo obligatorio.
+            </div>
+            <!-- end name -->
+
+            <!-- start email -->
+            <div class="mb-3 relative">
+              <i class="far fa-envelope absoluteAndMore"></i>
+              <input class="form-control inputOfLoginRegist" type="email" placeholder="Ingrese su email"
+                formControlName="email" [readOnly]="user.google">
+
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="campoNovalido('email')">
+              El email es obligatorio y tiene que ser válido.
+            </div>
+            <!-- end email -->
+
+            <!-- start birthDate -->
+            <div class="mb-3 relative">
+              <input class="form-control" type="date" formControlName="birthDate">
+              <span class="position-absolute top-0 start-100 translate-middle p-2 bg-warning border border-light rounded-circle" *ngIf="showNotificaction">
+                <span class="visually-hidden"></span>
+              </span>
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="campoNovalido('birthDate')">
+              La fecha de nacimiento es obligatoria.
+            </div>
+            <!-- end birthDate -->
+
+
+            <!-- start sexo -->
+            <div class="mb-3 relative">
+              <span class="label-form-control me-2">Sexo: </span>
+              <span class="position-absolute top-0 start-100 translate-middle p-2 bg-warning border border-light rounded-circle" *ngIf="showNotificaction">
+                <span class="visually-hidden"></span>
+              </span>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input " type="radio" value="Mujer" formControlName="sexo">
+                <label class="form-check-label">Mujer</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" value="Hombre" formControlName="sexo">
+                <label class="form-check-label">Hombre</label>
+              </div>
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="campoNovalido('sexo')">
+              El sexo es obligatorio.
+            </div>
+            <!-- end sexo -->
+
+            <!-- start telephone -->
+            <div class="mb-3 relative">
+              <i class="fas fa-mobile-alt absoluteAndMore"></i>
+              <input class="form-control inputOfLoginRegist" type="text" placeholder="Ingrese su móvil" formControlName="phone">
+                <span class="position-absolute top-0 start-100 translate-middle p-2 bg-warning border border-light rounded-circle" *ngIf="showNotificaction">
+                  <span class="visually-hidden"></span>
+                </span>
+            </div>
+            <div class="alert alert-danger" role="alert" *ngIf="campoNovalido('phone')">
+              El teléfono es obligatorio y de 9 caracteres.
+            </div>
+            <!-- end telephone -->
+
+            <!-- start newsLetter -->
+            <div class="form-check mb-2">
+              <input class="form-check-input" type="checkbox" value="true" formControlName="newsLetter"> 
+              <label class="form-check-label" for="flexCheckDefault">
+                Deseo recibir información sobre novedades y ofertas.
+              </label>
+            </div>
+            <!-- end newsLetter -->
+
+            <!-- start submit -->
+            <button type="submit" class="btn btn-primario borderRadius text-uppercase align-self-center">Guardar</button>
+            <!-- end submit -->
+
+
+          </form>
+        </div>
+
+      </div>
+
     </div>
 
   </div>
 </div>
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>

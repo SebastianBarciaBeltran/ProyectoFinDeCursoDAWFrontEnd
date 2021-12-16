@@ -22,17 +22,18 @@
           <a class="nav-link text-dark textHover phover fs-5" [routerLink]="[ '/es/account/mis-citas']" routerLinkActive="rutaActiva" >Mis citas</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark textHover phover fs-5" [routerLink]="[ '/es/account/settings']" routerLinkActive="rutaActiva" ><i class="pi pi-cog text-primario"></i> Ajustes</a>
+          <a class="nav-link text-dark textHover phover fs-5" [routerLink]="[ '/es/account/settings']"
+            routerLinkActive="rutaActiva"><i class="pi pi-cog text-primario"></i> Ajustes<i class="pi pi-bell fs-5" pBadge value="{{ notificaction }}" size="xlarge" severity="danger" *ngIf="showNotificaction"></i></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-dark textHover phover fs-5" ><i class="pi pi-sign-out text-primario"></i> Logout</a>
+          <a class="nav-link text-dark textHover phover fs-5 border-top" (click)="logout()"><i class="pi pi-sign-out text-primario"></i> Logout</a>
         </li>
       </ul>
     </div>
 
     <div class="col-12 col-sm-8 col-md-4 col-lg-10">
         <div class="mx-auto" style="width: 400px;">
-            <img src="assets/images/construyendo.jpg" class="img-fluid" alt="">
+            <img src="assets/images/construyendo.jpg" class="animate__animated animate__fadeIn img-fluid" alt="">
           </div>
     </div>
 
