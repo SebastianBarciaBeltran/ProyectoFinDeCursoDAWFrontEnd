@@ -17,7 +17,19 @@ export class ClientSettingsComponent implements OnInit {
   }
 
 
+
+  cambiarImagen() {
+
+  }
+
+  subirImagen(){
+    
+  }
+
+
+
   logout(){
+
   }
 
 }

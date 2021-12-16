@@ -47,7 +47,7 @@ export class RegisterComponent implements OnInit {
           .subscribe( resp => {
               this.backendErrors = false;
               // una vez inicie sesion lo llevamos al home 
-              this._router.navigateByUrl('/es/account');
+              this._router.navigateByUrl('/es/account/inicio');
             }, ( err ) => {
               this.backendErrors = true;
               this.backendErrorMsg = err.error.msg;

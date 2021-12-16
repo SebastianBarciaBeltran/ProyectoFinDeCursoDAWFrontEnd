@@ -7,24 +7,30 @@ html, body { margin: 0; padding: 0; background-color: #F6F6F3;  font-family: Rob
 
 /* START PERSONAL COLORS */
        /* TEXT */
-.text-primario{ color: #D81849; }
+.text-primario{ color: #D81849 !important; }
 .text-primarioHover:hover{
        color: #D81849 !important;
 }
 
        /* BACKGROUND */
-.bg-primario  { background-color: #D81849; }
-.bg-secundario{ background-color: #F6F6F3; }
+.bg-primario  { background-color: #D81849 !important; }
+.bg-secundario{ background-color: #F6F6F3 !important; }
 
        /* BUTTONS */
-.btn-primario  { background-color: #D81849 !important; color: white !important; }
+.btn-primario  { background-color: #D81849 !important; color: white !important; border: none !important;}
 .btn-outline-primario { border: 1px solid #D81849 !important;}
 
 /* HOVER FOR ITEM OF NAVBAR */
 .phover:hover{
 border-bottom: solid 1px #D81849 !important;
 }
+.textHover:hover{
+color: #D81849 !important; 
+}
 
+.rutaActiva{
+       border-bottom: 1px solid #D81849 !important;
+}
 /* HOVER FOR BUTTONS */
 .buttonHover:hover{
        background-color: #D81849 !important; 
@@ -43,7 +49,7 @@ border-bottom: solid 1px #D81849 !important;
 }
 /* CURSORPOINTER */
 .pointer{
-    cursor: pointer;
+    cursor: pointer !important;
 }
 
 /* MAX WITH FOR THE ALL TEXT */

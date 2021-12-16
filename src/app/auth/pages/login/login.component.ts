@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
           }
 
           // Navegamos al home
-          this._router.navigateByUrl('/es/account');
+          this._router.navigateByUrl('/es/account/inicio');
 
     }, ( err ) => {
         this.backendErrors = true;
@@ -100,7 +100,7 @@ export class LoginComponent implements OnInit {
                   // Navegamos al home
                   this.ngZone.run(()=> {
                     // Navegamos al home
-                    this._router.navigateByUrl('/es/account');
+                    this._router.navigateByUrl('/es/account/inicio');
                   })
                 });
 

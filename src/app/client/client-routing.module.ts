@@ -13,9 +13,11 @@ import { ClientcontactComponent }             from './pages/clientcontact/client
 import { ClientnosotrosComponent }            from './pages/clientnosotros/clientnosotros.component';
 import { ClientpreguntasfrecuentesComponent } from './pages/clientpreguntasfrecuentes/clientpreguntasfrecuentes.component';
 import { ClientgarantiasComponent }           from './pages/clientgarantias/clientgarantias.component';
-import { ClientserviciosComponent } from './pages/clientservicios/clientservicios.component';
-import { ClientdescuentosComponent } from './pages/clientdescuentos/clientdescuentos.component';
-import { ClientbeneficiariosComponent } from './pages/clientbeneficiarios/clientbeneficiarios.component';
+import { ClientserviciosComponent }           from './pages/clientservicios/clientservicios.component';
+import { ClientdescuentosComponent }          from './pages/clientdescuentos/clientdescuentos.component';
+import { ClientbeneficiariosComponent }       from './pages/clientbeneficiarios/clientbeneficiarios.component';
+import { ClientMiSaludComponent }             from './pages/userLogged/client-mi-salud/client-mi-salud.component';
+import { ClientMisCitasComponent }            from './pages/userLogged/client-mis-citas/client-mis-citas.component';
 
 
 const routes: Routes = [
@@ -33,7 +35,9 @@ const routes: Routes = [
         { path: 'contacto',  component: ClientcontactComponent },
         { path: 'preguntas-frecuentes-covid19',  component: ClientpreguntasfrecuentesComponent },
         // USUARIO LOGGED
-        { path: 'account',  component: UserloggedBodyComponent, canActivate: [AuthGuard]},
+        { path: 'account/inicio',  component: UserloggedBodyComponent, canActivate: [AuthGuard]},
+        { path: 'account/mi-salud',  component: ClientMiSaludComponent, canActivate: [AuthGuard]},
+        { path: 'account/mis-citas',  component: ClientMisCitasComponent, canActivate: [AuthGuard]},
         { path: 'account/settings',  component: ClientSettingsComponent, canActivate: [AuthGuard]},
 
         // CUALQUIER RUTA QUE NO EXISTA LA MANDO AL HOME
