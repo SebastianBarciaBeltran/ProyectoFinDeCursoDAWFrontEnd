@@ -8,22 +8,27 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FooterComponent } from './footer/footer.component';
 import { NewsletterComponent } from './components/newsletter/newsletter.component';
 import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
+import { LoadingComponent } from './components/loading/loading.component';
+import { AngularPrimeNgModule } from '../primeNg/angular-prime-ng.module';
 
 @NgModule({
   declarations: [
     NavbarComponent,
     FooterComponent,
     NewsletterComponent,
-    NoPageFoundComponent
+    NoPageFoundComponent,
+    LoadingComponent
   ],
   exports: [
     NavbarComponent,
     FooterComponent,
-    NoPageFoundComponent
+    NoPageFoundComponent,
+    LoadingComponent
   ],
   imports: [
     CommonModule,
-    AuthRoutingModule
+    AuthRoutingModule,
+    AngularPrimeNgModule
   ]
 })
 export class SharedModule { }

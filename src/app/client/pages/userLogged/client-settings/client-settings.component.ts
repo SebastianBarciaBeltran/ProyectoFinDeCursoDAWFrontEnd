@@ -3,11 +3,11 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { ConfirmationService } from 'primeng/api';
 import { MessageService }      from 'primeng/api';
-import { ImagesService }       from 'src/app/services/images.service';
 import { UserService }         from 'src/app/admin/services/user.service';
 import { AuthService }         from 'src/app/auth/services/auth.service';
 
 import { User } from 'src/app/auth/models/user.model';
+import { FileUploadService } from 'src/app/services/file-upload.service';
 
 @Component({
   selector: 'app-client-settings',
@@ -34,7 +34,7 @@ export class ClientSettingsComponent implements OnInit {
   constructor(private _userService: UserService,
               private _authService: AuthService,
               private fb: FormBuilder,
-              private  _fileUploadService : ImagesService,
+              private  _fileUploadService : FileUploadService,
               private confirmationService: ConfirmationService,
               private messageService: MessageService, 
   ) { 
@@ -97,7 +97,7 @@ export class ClientSettingsComponent implements OnInit {
   }
 
   cambiarImagen( file : File ){
-
+    console.log(file);
     this.imagenSubir = file;
 
     if ( !file ) { 
@@ -116,7 +116,7 @@ export class ClientSettingsComponent implements OnInit {
   subirImagen(){
     // this._fileUploadService.updateFoto( this.imagenSubir, 'users', this.user.uid || '' )
     // .then( img => console.log( img ) );
-    this._fileUploadService.updateFoto( this.imagenSubir, 'users', this.user.uid || '')
+    this._fileUploadService.actualizarFoto( this.imagenSubir, 'users', this.user.uid || '')
       .then( img => {
         this.user.img = img;
         this.messageService.add({severity:'success', summary: 'La imagen de perfil se ha actualizado correctamente', life: 3000});

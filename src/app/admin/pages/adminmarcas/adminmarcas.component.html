@@ -1,9 +1,87 @@
-<div class="container">
+<div class="container-fluid py-2">
+
+    <!-- message success primeNG -->
+    <p-toast></p-toast>
+    <!-- message success primeNG -->
+    <!-- LOADING -->
+    <app-loading *ngIf="loading"></app-loading>
+    <!-- LOADING -->
+   
+    <div class="card p-0" *ngIf="!loading">
+        <p-table #dt [value]="brands" 
+                     [rows]="5" 
+                     [paginator]="true" 
+                     [globalFilterFields]="['name']" 
+                     responsiveLayout="scroll"
+                     [rowHover]="true" dataKey="id"
+                     currentPageReportTemplate="Mostrando {first} de {last} de {totalRecords} " [showCurrentPageReport]="true">
+            <ng-template pTemplate="caption">
+                <div class="p-d-flex p-ai-center p-jc-between">
+                    <h5 class="display-6 fw-light animate__animated animate__fadeIn">Administración de Marcas</h5>
+                    <div class="d-flex justify-content-between">
+                        <button pButton pRipple label="MARCA" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew()"></button>
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search..." />
+                        </span>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th style="width: 100px;">Imagen</th>
+                    <th style="width: 150px;" pSortableColumn="name" class="w200">Nombre <p-sortIcon field="name"></p-sortIcon></th>
+                    <th style="width: 100%;" pSortableColumn="description">Descripcion <p-sortIcon field="description"></p-sortIcon></th>
+                    <th></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-brand>
+                <tr>
+                    <td><img (click)="abrirModal(brand)" [src]="brand.img | image:'brands'" [alt]="brand.name" class="brandimg pointer" style="width: 150px;"> </td>
+                    <td>
+                        <input type="text" pInputText id="name"  required [(ngModel)]="brand.name" />
+                    </td>
+                    <td>
+                        <textarea class="form-control" style="width: 100%; height: 80px"  id="floatingTextarea2" [(ngModel)]="brand.description"></textarea>
+                    </td>
+                    <td>
+                        <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-warning m-1" (click)="guardarCambios( brand )"></button>
+                        <button pButton pRipple icon="pi pi-trash"  class="p-button-rounded p-button-danger  m-1" (click)="deleteBrand(brand)"></button>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="summary">
+                <div class="p-d-flex p-ai-center p-jc-between text-primario">
+                    Hay un total de {{brands ? brands.length : 0 }} Marcas.
+                </div>
+            </ng-template>
+        </p-table>
+    </div>
+
+
+    <p-dialog [(visible)]="brandDialog" [style]="{width: '600px'}"  header="Marca detalles" [modal]="true" styleClass="p-fluid">
+        <ng-template pTemplate="content">
+            <div class="p-field">
+                <label for="name">Nombre</label>
+                <input type="text" pInputText id="name" autofocus required [(ngModel)]="brand.name" />
+                <small class="p-error" *ngIf="submitted &&!brand.name">Campo obligatorio.</small>
+            </div>
+            <div class="p-field">
+                <label for="description">Descripción</label>
+                <textarea pInputTextarea  rows="3" cols="20" required [(ngModel)]="brand.description"></textarea>
+                <small class="p-error" *ngIf="submitted && !brand.description">Campo obligatorio.</small>
+            </div>
+         
+        </ng-template>
     
+        <ng-template pTemplate="footer">
+            <button pButton pRipple label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+            <button pButton pRipple label="Crear" icon="pi pi-check" class="p-button-text" (click)="createBrand()"></button>
+        </ng-template>
+    </p-dialog>
 
-
-
-    <h1>asas</h1>
-
-
+    
+    
 </div>
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>

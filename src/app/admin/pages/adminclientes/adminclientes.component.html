@@ -1,0 +1,84 @@
+<div class="container-fluid py-2">
+
+    <!-- message success primeNG -->
+    <p-toast></p-toast>
+    <!-- message success primeNG -->
+    <!-- LOADING -->
+    <app-loading *ngIf="loading"></app-loading>
+    <!-- LOADING -->
+   
+    <div class="card p-0" *ngIf="!loading">
+        <p-table #dt [value]="users" 
+                     [rows]="5" 
+                     [paginator]="true" 
+                     [globalFilterFields]="['name']" 
+                     responsiveLayout="scroll"
+                     [rowHover]="true" dataKey="id"
+                     currentPageReportTemplate="Mostrando {first} de {last} de {totalRecords} " [showCurrentPageReport]="true">
+            <ng-template pTemplate="caption">
+                <div class="p-d-flex p-ai-center p-jc-between">
+                    <h5 class="display-6 fw-light animate__animated animate__fadeIn">Administracion de clientes</h5>
+                    <div class="d-flex justify-content-between">
+                        <div></div>
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search..." />
+                        </span>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th class="w100">Imagen</th>
+                    <th class="w200" pSortableColumn="name">Nombre <p-sortIcon field="name"></p-sortIcon></th>
+                    <th class="w200" pSortableColumn="email">Email</th>
+                    <th class="w100"pSortableColumn="birthDate">F.nacimiento</th>
+                    <th class="w100" pSortableColumn="sexo">Genero</th>
+                    <th class="w100" pSortableColumn="phone">Télefono</th>
+                    <th class="w100" pSortableColumn="dateOfRegister">F.registro<p-sortIcon field="dateOfRegister"></p-sortIcon></th>
+                    <th class="w100" pSortableColumn="newsLetter">NewsLetter<p-sortIcon field="newsLetter"></p-sortIcon></th>
+                    <th class="w100" pSortableColumn="google">Auth<p-sortIcon field="google"></p-sortIcon></th>
+                    <th class="w100" pSortableColumn="role">Role<p-sortIcon field="role"></p-sortIcon></th>
+                    <th class="w100" ></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-user>
+                <tr>
+                    <td><img (click)="abrirModal(user)" [src]="user.img | image:'users'" [alt]="user.name" class="brandimg pointer avatar"> </td>
+                    <td>{{ user.name }} </td>
+                    <td>{{ user.email }} </td>
+                    <td>{{ user.birthDate | date}} </td>
+                    <td>{{ user.sexo }} </td>
+                    <td>{{ user.phone }} </td>
+                    <td>{{ user.dateOfRegister | date }} </td>
+                    <td>{{ user.newsLetter }} </td>
+                    <td>
+                        <span class="badge  bg-danger" *ngIf="user.google">Google</span>
+                        <span class="badge  bg-primary"   *ngIf="!user.google">Email</span>
+                    </td>
+                    <td>
+                        <select class="form-select form-select-sm"
+                         [(ngModel)]="user.role"
+                         (change)="changeRole( user )"
+                        >
+                       <option value="ADMIN_ROLE">Admin</option>
+                       <option value="USER_ROLE">User</option>
+                     </select>
+                    </td>
+                    <td>
+                        <button pButton pRipple icon="pi pi-trash"  class="p-button-rounded p-button-danger  m-1" (click)="deleteUser( user )" ></button>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="summary">
+                <div class="p-d-flex p-ai-center p-jc-between text-primario">
+                    Hay un total de {{users ? users.length : 0 }} Clientes.
+                </div>
+            </ng-template>
+        </p-table>
+    </div>
+  
+    
+</div>
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>

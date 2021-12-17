@@ -1,19 +1,15 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { environment } from '../../environments/environment';
 
-import { environment } from 'src/environments/environment';
-
-
-const base_url: string = environment.base_url;
+const base_url = environment.base_url;
 
 @Injectable({
   providedIn: 'root'
 })
-export class ImagesService {
+export class FileUploadService {
 
-  constructor( private _http: HttpClient ) { }
-
-    // --- GETTERS --- //
+  constructor() { }
+  // --- GETTERS --- //
 
   /**
    * OBTENEMOS EL TOKEN 
@@ -33,17 +29,16 @@ export class ImagesService {
     }
   }
 
-  async updateFoto (
+  async actualizarFoto(
     archivo: File,
-    tipo : 'users'|'products'|'brands',
+    tipo: 'users'|'products'|'brands',
     id: string
-  ){
+  ) {
 
     try {
 
       const url = `${ base_url }/uploads/${ tipo }/${ id }`;
       const formData = new FormData();
-
       formData.append('img', archivo);
 
       const resp = await fetch( url, {
@@ -57,23 +52,26 @@ export class ImagesService {
       const data = await resp.json();
 
       if ( data.ok ) {
-          return data.nombreArchivo;
-      } else{
+        return data.nombreArchivo;
+      } else {
         console.log(data.msg);
         return false;
       }
 
+      
       console.log('data:', data);
 
-      return 'nombre de la imagen'
+      // console.log( resp );
 
+      return 'nombre de la imagen'
+      
     } catch (error) {
       console.log(error);
-      return false
+      return false;    
     }
 
-
   }
+
 
 
 }

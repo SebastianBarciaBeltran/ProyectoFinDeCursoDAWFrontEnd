@@ -2,10 +2,6 @@
 @import "bootstrap-icons/font/bootstrap-icons.css";
 
 html, body { margin: 0; padding: 0; background-color: #F6F6F3;  font-family: Roboto, "Helvetica Neue", sans-serif;}
-.optiTextColor1{ color: #D81849; }
-.optiTextColor2{ color: #87888A; }
-.optiTextColor3{ color: #F6F6F3; }
-
 
 /* START PERSONAL COLORS */
        /* TEXT */
@@ -68,4 +64,63 @@ color: #D81849 !important;
 }
 
 
+/* table */
 
+.w100{
+       width: 100px;
+}
+
+.maxWidth{
+       max-width: 1700px;
+}
+.w50{
+       width: 50px;
+}
+.w200{
+       width: 200px;
+}
+
+.imgCenter{
+       display: block;
+       margin: auto;
+}
+
+
+/* modal */
+.fondo-modal-imagen {
+       background-color: rgba(0, 0, 0, 0.4) !important;
+       left: 0px !important;
+       height: 100% !important;
+       position: fixed !important;
+       top: 0px !important;
+       width: 100% !important;
+       z-index: 9999 !important;
+}
+
+.oculto {
+    display: none !important;
+}
+
+.h100{
+       height: 100%;
+}   
+
+.w100{
+       width: 100px;
+
+}
+.w140{
+width: 140px;
+}
+
+.brandimg{
+width : 120px;
+height: 120px;
+
+}
+
+.avatar{
+width : 80px;
+height: 80px;
+border-radius: 100%;
+}

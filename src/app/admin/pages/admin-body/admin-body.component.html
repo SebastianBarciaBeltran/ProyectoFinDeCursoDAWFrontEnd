@@ -1,16 +1,14 @@
-<div class="container-fluid p-0">
+<div class="row" style="height: 100vh;">
 
-    <div class="row">
-
-        <div class="col-2">
-            <app-adminnavbar ></app-adminnavbar>
-        </div>
-
-        <div class="col">
-            <router-outlet></router-outlet>
-        </div>
-
+    <div class="col-1 bg-secundario pb-2 h-100">
+        <app-adminnavbar></app-adminnavbar>
     </div>
-
-
+    
+    <div class="col  bg-secundario p-0 pb-2 h-100">
+        <router-outlet></router-outlet>
+    </div>
 </div>
+<app-modal-imagen></app-modal-imagen>
+
+
+

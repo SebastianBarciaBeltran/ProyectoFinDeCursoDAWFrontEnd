@@ -1,73 +1,62 @@
 
-  <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark vh-100" style="width: 250px;">
+  <div class="d-flex flex-column flex-shrink-0 text-white bg-dark heighPersonal">
 
-    <h1 class="animate__animated animate__fadeIn display-4 text-light text-secondary pointer" routerLink="/">Opti<span class="text-primario">√</span>ista</h1>
-    <span class="text-light fw-light fs-6 text-end animate__animated  animate__backInUp">Dashboard</span>
+    <h1 class="animate__animated animate__fadeIn fw-light p-2 fs-3 text-center text-light text-secondary pointer" routerLink="/">Opti<span class="text-primario">√</span>ista</h1>
+    <span class="text-light fw-light fs-6 text-center animate__animated  animate__backInUp">Dashboard</span>
     <hr>
-    <ul class="nav nav-pills flex-column mb-auto">
+    <ul class="nav d-flex felx-column justify-content-center">
       
-      <li class="buttonHover">
-        <a class="nav-link fs-5 text-light" routerLink="home" routerLinkActive="rutaActiva" >
-          <i class="bi bi-house-door text-light"></i>
+      <li class="text-center mb-1">
+        <i class="bi bi-house-door text-light"></i>
+        <a class="nav-link fs-5 text-light text-primarioHover" routerLink="home" routerLinkActive="rutaActiva" >
           Home
         </a>
       </li>
       
-      <li class="buttonHover">
-        <a class="nav-link fs-5 text-light" routerLink="marcas" routerLinkActive="rutaActiva">
-          <i class="bi bi-archive"></i>
+      <li class="text-center">
+        <i class="bi bi-archive"></i>
+        <a class="nav-link fs-5 text-light text-primarioHover" routerLink="marcas" routerLinkActive="rutaActiva">
           Marcas
         </a>
       </li>
 
-      <li class="buttonHover">
-        <a class="nav-link fs-5 text-light">
-          <i class="bi bi-grid"></i>
+      <li class="text-center">
+        <i class="bi bi-grid"></i>
+        <a class="nav-link fs-5 text-light text-primarioHover" routerLink="productos" routerLinkActive="rutaActiva">
           Productos
         </a>
       </li>
 
-      <li class="buttonHover">
-        <a class="nav-link fs-5 text-light">
-          <i class="bi bi-book"></i>
+      <li class="text-center">
+        <i class="bi bi-person-circle"></i>
+        <a class="nav-link fs-5 text-white text-primarioHover " routerLink="clientes" routerLinkActive="rutaActiva">
+          Customers
+        </a>
+      </li>
+
+      <li class="text-center">
+        <i class="bi bi-book"></i>
+        <a class="nav-link fs-5 text-light text-primarioHover">
           Blog
         </a>
       </li>
 
-      <li class="buttonHover">
-        <a class="nav-link fs-5 text-white">
-          <i class="bi bi-calendar-event"></i>
+      <li class="text-center">
+        <i class="bi bi-calendar-event"></i>
+        <a class="nav-link fs-5 text-white text-primarioHover">
           Gestor citas
         </a>
       </li>
 
-      <li class="buttonHover">
-        <a class="nav-link fs-5 text-white">
-          <i class="bi bi-newspaper"></i>
+      <li class="text-center">
+        <i class="bi bi-newspaper"></i>
+        <a class="nav-link fs-5 text-white text-primarioHover">
           NewsLetters
-        </a>
-      </li>
-      
-      <li class="buttonHover">
-        <a class="nav-link fs-5 text-white">
-          <i class="bi bi-person-circle"></i>
-          Customers
         </a>
       </li>
 
     </ul>
     <hr>
-    <div class="dropdown">
-      <a class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
-        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-        <strong>mdo</strong>
-      </a>
-      <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
-        <li><a class="dropdown-item">New project...</a></li>
-        <li><a class="dropdown-item">Settings</a></li>
-        <li><a class="dropdown-item">Profile</a></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item">Sign out</a></li>
-      </ul>
-    </div>
-  </div>
+    <a class="nav-link fs-5 text-white text-primarioHover">
+      Logout
+    </a>

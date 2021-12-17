@@ -1,0 +1,157 @@
+<div class="py-2">
+
+    <!-- message success primeNG -->
+    <p-toast></p-toast>
+    <!-- message success primeNG -->
+    <!-- LOADING -->
+    <app-loading *ngIf="loading"></app-loading>
+    <!-- LOADING -->
+   
+    <div class="card p-0 maxWidth" *ngIf="!loading">
+        <p-table #dt [value]="products" 
+                     [rows]="5" 
+                     [paginator]="true" 
+                     [globalFilterFields]="['name']" 
+                     responsiveLayout="scroll"
+                     [rowHover]="true" dataKey="id"
+                     currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} " [showCurrentPageReport]="true">
+            <ng-template pTemplate="caption">
+                <div class="p-d-flex p-ai-center p-jc-between">
+                    <h5 class="display-6 fw-light animate__animated animate__fadeIn">Administración de Productos</h5>
+                    <div class="d-flex justify-content-between">
+                        <button pButton pRipple label="PRODUCTO" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew()"></button>
+                        <span class="p-input-icon-left">
+                            <i class="pi pi-search"></i>
+                            <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search..." />
+                        </span>
+                    </div>
+                </div>
+            </ng-template>
+            <ng-template pTemplate="header">
+                <tr>
+                    <th class="w50" >Imagen</th>
+                    <th class="w50" pSortableColumn="name" class="w200">Nombre <p-sortIcon field="name"></p-sortIcon></th>
+                    <th class="w50" pSortableColumn="references">   Referencia                          </th>
+                    <th class="w50" pSortableColumn="type">         Tipo                                </th>
+                    <th class="w50" pSortableColumn="style">        Estilo                              </th>
+                    <th class="w50" pSortableColumn="form">         forma                               </th>
+                    <th class="w50" pSortableColumn="colorCristal"> Color cristal                       </th>
+                    <th class="w50" pSortableColumn="colorMontura"> Color montura                       </th>
+                    <th class="w50" pSortableColumn="gender">       Género                              </th>
+                    <th class="w50" pSortableColumn="brand">Marca<p-sortIcon field="brand"></p-sortIcon></th>
+                    <th class="w50" ></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-product>
+                <tr>
+                    <td><img (click)="abrirModal(product)" [src]="product.img | image:'products'" [alt]="product.name" width="100" class="shadow rounded-3 pointer" /></td>
+                    <td>
+                        <input type="text" pInputText id="name" required [(ngModel)]="product.name" />
+                    </td>
+                    <td>
+                        <input type="text"  pInputText id="references" required [(ngModel)]="product.references" />
+                    </td>
+                    <td>
+                        <p-dropdown [(ngModel)]="product.type" inputId="types"  required="true" [options]="types" placeholder="{{ product.type }}"></p-dropdown>
+                    </td>
+                    <td>
+                        <p-dropdown [(ngModel)]="product.style" inputId="styles" required="true" [options]="styles" placeholder="{{ product.style }}"></p-dropdown>
+                    </td>
+                    <td>
+                        <p-dropdown [(ngModel)]="product.form" inputId="form" required="true" [options]="forms" placeholder="{{ product.form }}"></p-dropdown>
+                    </td>
+                    <td>
+                        <p-dropdown [options]="colors" [(ngModel)]="product.colorCristal" inputId="colorCristal" optionLabel="name" placeholder="{{ product.colorCristal }}" optionValue="value"></p-dropdown>
+                    </td>
+                    <td>
+                        <p-dropdown [(ngModel)]="product.colorMontura" inputId="colorMontura" [options]="colors" optionLabel="name" placeholder="{{ product.colorMontura }}" optionValue="value"></p-dropdown>
+                    </td>
+                    <td>
+                        <p-dropdown [(ngModel)]="product.gender" inputId="gender" required="true" [options]="genders" placeholder="{{ product.gender }}"></p-dropdown>
+                    </td>
+                    <td>
+                        <p-dropdown [(ngModel)]="product.brand" inputId="brand" required="true" [options]="brands" optionLabel="name" optionValue="_id" placeholder="{{ product.brand.name }}"></p-dropdown>
+                    </td>
+                    <td>
+                        <button pButton type="button" class="p-button-warning p-button-rounded m-1" icon="pi pi-pencil" (click)="guardarCambios(product)"></button>
+                        <button pButton type="button" class="p-button-danger p-button-rounded  m-1" icon="pi pi-trash"  (click)="deleteProduct(product)"> </button>
+                    </td>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="summary">
+                <div class="p-d-flex p-ai-center p-jc-between text-primario">
+                    Hay un total de {{products ? products.length : 0 }} Productos.
+                </div>
+            </ng-template>
+        </p-table>
+    </div>
+
+
+    <p-dialog [(visible)]="productDialog" [style]="{width: '600px', height:'40vw'}"  header="Crear producto" [modal]="true" styleClass="p-fluid" class="py-5">
+        <ng-template pTemplate="content">
+            <div class="p-field mb-1">
+                <label for="name">Nombre:</label>
+                <input type="text" pInputText id="name" required [(ngModel)]="product.name" />
+                <small class="p-error" *ngIf="submitted &&!product.name">Campo obligatorio.</small>
+            </div>
+            <div class="p-field mb-1">
+                <label for="references">Referencia: </label>
+                <input type="text" pInputText id="references" required [(ngModel)]="product.references" />
+                <small class="p-error" *ngIf="submitted && !product.references">Campo obligatorio.</small>
+            </div>
+
+            <div class="p-field mb-1">
+                <label for="type">Tipo: </label>
+                <p-dropdown [(ngModel)]="product.type" inputId="types"  required="true" [options]="types" placeholder="- - -"></p-dropdown>
+                <small class="p-error" *ngIf="submitted && !product.type">Campo obligatorio.</small>
+            </div>
+
+            <div class="p-field mb-1">
+                <label for="style">Estilo: </label>
+                <p-dropdown [(ngModel)]="product.style" inputId="styles" required="true" [options]="styles" placeholder="- - -"></p-dropdown>
+                <small class="p-error" *ngIf="submitted && !product.style">Campo obligatorio.</small>
+            </div>
+           
+            <div class="p-field mb-1">
+                <label for="form">Forma: </label>
+                <p-dropdown [(ngModel)]="product.form" inputId="form" required="true" [options]="forms" placeholder="- - -"></p-dropdown>
+                <small class="p-error" *ngIf="submitted && !product.form">Campo obligatorio.</small>
+            </div>
+
+            <div class="p-field mb-1">
+                <label for="colorCristal">Color cristal: </label>
+                <p-dropdown [options]="colors" [(ngModel)]="product.colorCristal" inputId="colorCristal" optionLabel="name" placeholder="- - - " optionValue="value"></p-dropdown>
+                <small class="p-error" *ngIf="submitted && !product.colorCristal">Campo obligatorio.</small>
+            </div>
+
+            <div class="p-field mb-1">
+                <label for="colorMontura">Color montura: </label>
+                <p-dropdown [(ngModel)]="product.colorMontura" inputId="colorMontura" [options]="colors" optionLabel="name" placeholder="- - - " optionValue="value"></p-dropdown>
+                <small class="p-error" *ngIf="submitted && !product.colorMontura">Campo obligatorio.</small>
+            </div>
+
+            <div class="p-field mb-1">
+                <label for="gender">Género: </label>
+                <p-dropdown [(ngModel)]="product.gender" inputId="gender" required="true" [options]="genders" placeholder="- - -"></p-dropdown>
+                <small class="p-error" *ngIf="submitted && !product.gender">Campo obligatorio.</small>
+            </div>
+
+            <div class="p-field mb-1">
+                <label for="brand">Marca: </label>
+                <p-dropdown [(ngModel)]="product.brand" inputId="brand" required="true" [options]="brands" optionLabel="name" optionValue="_id" placeholder="- - -"></p-dropdown>
+                <small class="p-error" *ngIf="submitted && !product.brand">Campo obligatorio.</small>
+            </div>
+         
+        </ng-template>
+    
+        <ng-template pTemplate="footer">
+            <button pButton pRipple label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+            <button pButton pRipple label="Crear" icon="pi pi-check" class="p-button-text" (click)="createProduct()"></button>
+        </ng-template>
+    </p-dialog>
+
+    
+    
+</div>
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
