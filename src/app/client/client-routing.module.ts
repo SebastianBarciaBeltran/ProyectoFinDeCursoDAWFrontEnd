@@ -35,10 +35,10 @@ const routes: Routes = [
         { path: 'contacto',  component: ClientcontactComponent },
         { path: 'preguntas-frecuentes-covid19',  component: ClientpreguntasfrecuentesComponent },
         // USUARIO LOGGED
-        { path: 'account/inicio',  component: UserloggedBodyComponent, canActivate: [AuthGuard]},
-        { path: 'account/mi-salud',  component: ClientMiSaludComponent, canActivate: [AuthGuard]},
+        { path: 'account/inicio',  component: UserloggedBodyComponent,    canActivate: [AuthGuard]},
+        { path: 'account/mi-salud',  component: ClientMiSaludComponent,   canActivate: [AuthGuard]},
         { path: 'account/mis-citas',  component: ClientMisCitasComponent, canActivate: [AuthGuard]},
-        { path: 'account/settings',  component: ClientSettingsComponent, canActivate: [AuthGuard]},
+        { path: 'account/settings',  component: ClientSettingsComponent,  canActivate: [AuthGuard]},
 
         // CUALQUIER RUTA QUE NO EXISTA LA MANDO AL HOME
         { path: '', redirectTo: 'es', pathMatch: 'full' },

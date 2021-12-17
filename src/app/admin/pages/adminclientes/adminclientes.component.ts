@@ -61,7 +61,6 @@ export class AdminclientesComponent implements OnInit {
     this._userService.updataUserRole( user )
         .subscribe( resp => {
           this.messageService.add({severity:'success', summary: 'Successful', detail: `El rol del usuario: ${user.name} ha sido modificado` , life: 3000});
-    
         }); 
   }
 

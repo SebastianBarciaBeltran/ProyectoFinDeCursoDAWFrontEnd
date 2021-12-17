@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
-import { catchError, map, Observable, of, tap } from 'rxjs';
+import { BehaviorSubject, catchError, map, Observable, of, tap } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
 
@@ -22,8 +22,13 @@ export class AuthService {
 
   public user !: User;
 
+  public isLogged = new BehaviorSubject<boolean>(false); 
 
-  constructor(private _http: HttpClient, private _router: Router, private ngZone: NgZone) { }
+
+  constructor(private _http: HttpClient, private _router: Router, private ngZone: NgZone) { 
+    this.googleInit();
+
+  }
 
   // --- GETTERS --- // 
 
@@ -42,6 +47,12 @@ export class AuthService {
       }
     }
   }
+
+   getisLogged(): Observable<boolean> {
+
+      return this.isLogged;
+
+   }
 
 
   // --- FUNCTIONS --- // 
@@ -113,10 +124,11 @@ export class AuthService {
 
   logout(){
     localStorage.removeItem('token');
-  
+    this.isLogged.next(false);
     this.auth2.signOut().then( () => {
       this.ngZone.run(()=> {
-        this._router.navigateByUrl('/es');;
+        // this._router.navigateByUrl('/es');
+        this._router.navigateByUrl('/es/customer/login');
       })
     });
     

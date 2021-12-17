@@ -5,6 +5,7 @@ import { AdminBodyComponent } from './pages/admin-body/admin-body.component';
 import { AdminclientesComponent } from './pages/adminclientes/adminclientes.component';
 import { AdminhomeComponent } from './pages/adminhome/adminhome.component';
 import { AdminmarcasComponent } from './pages/adminmarcas/adminmarcas.component';
+import { AdminnewsletterComponent } from './pages/adminnewsletter/adminnewsletter.component';
 import { AdminproductosComponent } from './pages/adminproductos/adminproductos.component';
 
 const routes: Routes = [
@@ -13,10 +14,12 @@ const routes: Routes = [
     path: '',
     component: AdminBodyComponent,
     children: [
-       { path: 'home',   component: AdminhomeComponent },
-       { path: 'marcas', component: AdminmarcasComponent },
-       { path: 'productos', component: AdminproductosComponent },
-       { path: 'clientes', component: AdminclientesComponent },
+       { path: '',           component: AdminhomeComponent },
+       { path: 'home',       component: AdminhomeComponent },
+       { path: 'brands',     component: AdminmarcasComponent },
+       { path: 'products',   component: AdminproductosComponent },
+       { path: 'users',      component: AdminclientesComponent },
+       { path: 'newsletter', component: AdminnewsletterComponent },
     ]
 
   }

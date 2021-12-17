@@ -1,14 +1,85 @@
-<div class="row" style="height: 100vh;">
+ <mat-sidenav-container fullscreen>
 
-    <div class="col-1 bg-secundario pb-2 h-100">
-        <app-adminnavbar></app-adminnavbar>
-    </div>
-    
-    <div class="col  bg-secundario p-0 pb-2 h-100">
+    <mat-sidenav #sidenav mode="push">
+        <div class="p-3">
+            <h1 class="fw-light text-light text-secundario display-4">Opti<span class="text-primario">√</span>ista</h1>
+            <span class="text-light fw-light fs-6 float-end">Dashboard</span>
+        </div>
+      
+
+        <mat-nav-list>
+
+            <a routerLink="home" mat-list-item (click)="sidenav.toggle()">
+                <i class="bi bi-house-door mx-1"></i>
+                <span>Inicio</span>
+            </a>
+
+            <a routerLink="users" mat-list-item (click)="sidenav.toggle()">
+                <i class="bi bi-person-circle mx-1"></i>
+                <span>Usuarios</span>
+            </a>
+
+            <a routerLink="brands" mat-list-item (click)="sidenav.toggle()">
+                <i class="bi bi-archive mx-1"></i>
+                <span>Marcas</span>
+            </a>
+
+            <a routerLink="products" mat-list-item (click)="sidenav.toggle()">
+                <i class="bi bi-grid mx-1"></i>
+                <span>Productos</span>
+            </a>
+
+            <a routerLink="blog" mat-list-item (click)="sidenav.toggle()">
+                <i class="bi bi-book mx-1"></i>
+                <span>Blog</span>
+            </a>
+
+            <a routerLink="booking" mat-list-item (click)="sidenav.toggle()">
+                <i class="bi bi-calendar-event mx-1"></i>
+                <span>Gestor citas</span>
+            </a>
+
+            <a routerLink="newsletter" mat-list-item (click)="sidenav.toggle()">
+                <i class="bi bi-newspaper mx-1"></i>
+                <span>NewsLetters</span>
+            </a>
+
+            <a routerLink="settings" mat-list-item (click)="sidenav.toggle()">
+                <i class="bi bi-gear-wide-connected mx-1"></i>
+                <span>Ajustes</span>
+            </a>
+          
+            <button mat-button (click)="logout()" class="textHover">
+                <i class="bi bi-box-arrow-right fs-4 mx-1"></i>
+                Logout
+            </button>
+
+        </mat-nav-list>
+
+    </mat-sidenav>
+
+    <mat-toolbar>
+        <button mat-icon-button (click)="sidenav.toggle()" class="textHover">
+            <i class="bi bi-list fs-2"></i>
+        </button>
+
+        <span class="spacer"></span>
+
+        <button mat-button (click)="logout()" class="textHover">
+            <i class="bi bi-box-arrow-right fs-4 mx-1"></i>
+            Logout
+        </button>
+        
+    </mat-toolbar>
+
+
+    <div class="container-fluid">
         <router-outlet></router-outlet>
     </div>
-</div>
-<app-modal-imagen></app-modal-imagen>
+    
+    
+    <app-modal-imagen></app-modal-imagen>
+</mat-sidenav-container>
 
 
 

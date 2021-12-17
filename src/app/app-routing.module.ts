@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 
 import { NoPageFoundComponent } from './shared/no-page-found/no-page-found.component';
 
@@ -10,7 +11,7 @@ const routes: Routes = [
   
   { path: 'customer',  loadChildren: () => import('./auth/auth.module').then( m => m.AuthModule ) },
   
-  { path: 'dashboard', loadChildren: () => import('./admin/admin.module').then( m => m.AdminModule ) },
+  { path: 'dashboard', loadChildren: () => import('./admin/admin.module').then( m => m.AdminModule ), canActivate: [AuthGuard] } ,
 
   { path: '', redirectTo: 'es', pathMatch: 'full' },
   

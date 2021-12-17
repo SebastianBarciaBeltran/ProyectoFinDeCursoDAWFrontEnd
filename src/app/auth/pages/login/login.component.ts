@@ -36,6 +36,9 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     this.renderButton();
+    if ( localStorage.getItem('token') ) {
+      this._router.navigateByUrl('/es');
+    }
 
   }
 
@@ -56,7 +59,7 @@ export class LoginComponent implements OnInit {
           } else{
             localStorage.removeItem('email');
           }
-
+          this._authService.isLogged.next(true);
           // Navegamos al home
           this._router.navigateByUrl('/es/account/inicio');
 
@@ -100,6 +103,7 @@ export class LoginComponent implements OnInit {
                   // Navegamos al home
                   this.ngZone.run(()=> {
                     // Navegamos al home
+                    this._authService.isLogged.next(true);
                     this._router.navigateByUrl('/es/account/inicio');
                   })
                 });

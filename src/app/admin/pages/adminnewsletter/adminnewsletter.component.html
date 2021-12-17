@@ -1,0 +1,38 @@
+<div class="container">
+
+    <div class="row">
+
+        <div class="col-12 col-md-6">
+            <h5 class="display-6 fw-light animate__animated animate__fadeIn text-center">Usuarios registrados</h5>
+            <div class="alert alert-info" role="alert" *ngIf="users.length == 0">
+                No hay usuarios registrados que quieran recibir newsLetter
+            </div>
+            <p-table [value]="users" responsiveLayout="scroll">
+                <ng-template pTemplate="body" let-user>
+                    <tr>
+                        <td>{{user.email}}</td>
+                      
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+        
+        <div class="col-12 col-md-6">
+            <h5 class="display-6 fw-light animate__animated animate__fadeIn text-center">Clientes</h5>
+            <div class="alert alert-info" role="alert" *ngIf="clients.length == 0">
+                No hay clientes registrados que quieran recibir newsLetter
+            </div>
+            <p-table [value]="clients" responsiveLayout="scroll">
+                <ng-template pTemplate="body" let-client>
+                    <tr>
+                        <td>{{client.email}}</td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+
+
+    </div>
+
+
+</div>

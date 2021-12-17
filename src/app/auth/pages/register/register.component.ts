@@ -34,7 +34,9 @@ export class RegisterComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-  
+    if ( localStorage.getItem('token') ) {
+      this._router.navigateByUrl('/es');
+    }
   }
 
    // FUNCTION TO CREATE NEW USER
@@ -47,6 +49,7 @@ export class RegisterComponent implements OnInit {
           .subscribe( resp => {
               this.backendErrors = false;
               // una vez inicie sesion lo llevamos al home 
+              this._authService.isLogged.next(true);
               this._router.navigateByUrl('/es/account/inicio');
             }, ( err ) => {
               this.backendErrors = true;

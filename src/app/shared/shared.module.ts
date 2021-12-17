@@ -10,6 +10,7 @@ import { NewsletterComponent } from './components/newsletter/newsletter.componen
 import { NoPageFoundComponent } from './no-page-found/no-page-found.component';
 import { LoadingComponent } from './components/loading/loading.component';
 import { AngularPrimeNgModule } from '../primeNg/angular-prime-ng.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -23,10 +24,13 @@ import { AngularPrimeNgModule } from '../primeNg/angular-prime-ng.module';
     NavbarComponent,
     FooterComponent,
     NoPageFoundComponent,
-    LoadingComponent
+    LoadingComponent,
+    NewsletterComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     AuthRoutingModule,
     AngularPrimeNgModule
   ]

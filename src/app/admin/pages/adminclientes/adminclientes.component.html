@@ -47,11 +47,20 @@
                     <td><img (click)="abrirModal(user)" [src]="user.img | image:'users'" [alt]="user.name" class="brandimg pointer avatar"> </td>
                     <td>{{ user.name }} </td>
                     <td>{{ user.email }} </td>
-                    <td>{{ user.birthDate | date}} </td>
-                    <td>{{ user.sexo }} </td>
-                    <td>{{ user.phone }} </td>
-                    <td>{{ user.dateOfRegister | date }} </td>
-                    <td>{{ user.newsLetter }} </td>
+                    <td>
+                        {{ user.birthDate | date}} 
+                        <span class="badge bg-warning" *ngIf="!user.birthDate">pending</span>
+                    </td>
+                    <td>
+                        {{ user.sexo }} 
+                        <span class="badge bg-warning" *ngIf="!user.sexo">pending</span>
+                    </td>
+                    <td>
+                        <span class="badge bg-warning" *ngIf="!user.phone">pending</span>
+                        {{ user.phone }} 
+                    </td>
+                    <td>{{ user.dateOfRegister | date }}</td>
+                    <td>{{ user.newsLetter }}</td>
                     <td>
                         <span class="badge  bg-danger" *ngIf="user.google">Google</span>
                         <span class="badge  bg-primary"   *ngIf="!user.google">Email</span>

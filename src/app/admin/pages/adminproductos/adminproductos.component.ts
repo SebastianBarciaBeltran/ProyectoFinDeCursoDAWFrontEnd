@@ -89,7 +89,6 @@ export class AdminproductosComponent implements OnInit, OnDestroy {
 
     this._productService.getAllProducts()
           .subscribe( resp => {
-             console.log('resp:', resp)
              this.products = resp 
              this.loading = false;
           });
@@ -134,11 +133,8 @@ export class AdminproductosComponent implements OnInit, OnDestroy {
     
    }
 
-
   guardarCambios( product : Product){
     
-
-    console.log(product.brand?._id)
     this._productService.updateProduct( product )
     .subscribe( resp => {
       this.messageService.add({severity:'success', summary: 'Successful', detail: 'Producto actualizado correctamente!', life: 3000});
