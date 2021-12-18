@@ -17,7 +17,7 @@
 
           <div class="col-sm-6">
             <div class="d-flex flex-column align-items-center justify-content-center">
-                <p-calendar [(ngModel)]="hoy" [inline]="true" [showWeek]="true"></p-calendar>
+                <p-calendar [(ngModel)]="fecha" [inline]="true" [showWeek]="false" selectionMode="single" (click)="fechaSeleccionada( fecha )"></p-calendar>
             </div>
           </div>
 
@@ -28,7 +28,7 @@
           <div class="d-flex flex-column justify-content-center">
               <p class="card-text fw-light">Elige hora: </p>
               <div class="text-center">
-                <p class="text-primario fw-bold text-uppercase">{{ hoy | date: 'EEEE d'}}</p>   
+                <p class="text-primario fw-bold text-uppercase">{{ fecha | date: 'EEEE d'}}</p>   
               </div>
           </div>
 

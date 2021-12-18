@@ -14,7 +14,7 @@ export class ClientMiSaludComponent implements OnInit {
 
   public notificaction : number = 3;
   public showNotificaction : boolean = true;
-  
+  public isAdmin = false;
   constructor(private _authService: AuthService) { 
     this.user   = _authService.user;
   }
@@ -24,6 +24,11 @@ export class ClientMiSaludComponent implements OnInit {
       this.showNotificaction = false;
     } else {
        this.showNotificaction = true;
+    }
+
+    
+    if (this._authService.user.role == 'ADMIN_ROLE') {
+      this.isAdmin = true;
     }
   }
 

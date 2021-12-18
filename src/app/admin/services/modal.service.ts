@@ -12,7 +12,7 @@ export class ModalService {
   private _ocultarModal: boolean = true;
 
 
-  public tipo !: 'users'|'brands'|'products';
+  public tipo !: 'users'|'brands'|'products'|'blogs';
   public id   !: string;
   public img  !: string;
 
@@ -24,7 +24,7 @@ export class ModalService {
 
  constructor() { }
 
- abrirModal(tipo : 'users'|'brands'|'products', id: string, img = 'noImage'){
+ abrirModal(tipo : 'users'|'brands'|'products'|'blogs', id: string, img = 'noImage'){
   this._ocultarModal = false;
 
   this.tipo = tipo || '';

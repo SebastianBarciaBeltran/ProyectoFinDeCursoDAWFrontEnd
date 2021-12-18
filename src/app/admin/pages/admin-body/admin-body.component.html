@@ -44,7 +44,7 @@
                 <span>NewsLetters</span>
             </a>
 
-            <a routerLink="settings" mat-list-item (click)="sidenav.toggle()">
+            <a [routerLink]="['/es/account/settings']" mat-list-item (click)="sidenav.toggle()">
                 <i class="bi bi-gear-wide-connected mx-1"></i>
                 <span>Ajustes</span>
             </a>

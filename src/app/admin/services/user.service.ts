@@ -63,7 +63,7 @@ export class UserService {
   }
   
   updateUser( data: { name: string, email:string, birthDate:Date, sexo: string, phone: string, newsLetter : boolean, role: string }){
-
+    console.log(this.uid);
     data = {
       ...data,
       role: this.user.role

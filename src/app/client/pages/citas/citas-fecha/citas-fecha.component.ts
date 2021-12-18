@@ -9,12 +9,25 @@ import { ActivatedRoute } from '@angular/router';
 export class CitasFechaComponent implements OnInit {
   
 
-  public hoy : Date = new Date;
+  public fecha : Date = new Date;
+ 
 
   constructor(private _route : ActivatedRoute) { }
 
   ngOnInit(): void {
-    console.log( this._route.snapshot.paramMap.get('tipo'))
+    console.log( this._route.snapshot.paramMap.get('tipo'));
+  }
+
+
+  fechaSeleccionada( fechaSelecciona: Date ){
+    
+    // console.log('selecciona', fechaSelecciona)
+    
+    
+    fechaSelecciona.setHours(14,30)
+    
+    
+    // console.log('selecciona y hora seleccionada', fechaSelecciona);
   }
 
 }

@@ -27,6 +27,9 @@
         <li class="nav-item">
           <a class="nav-link text-dark textHover phover fs-5 border-top pointer" (click)="logout()"><i class="pi pi-sign-out text-primario"></i> Logout</a>
         </li>
+        <li class="nav-item mt-3" *ngIf="isAdmin">
+          <a class="nav-link text-dark textHover phover fs-5 border-top pointer" [routerLink]="['/dashboard']"><i class="bi bi-speedometer2 text-primario"></i> dashboard</a>
+        </li>
       </ul>
     </div>
 

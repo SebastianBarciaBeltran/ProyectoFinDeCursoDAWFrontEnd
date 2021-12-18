@@ -3,7 +3,6 @@ import { FormBuilder } from '@angular/forms';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { delay, Subscription } from 'rxjs';
 import { Product } from 'src/app/models/product.model';
-import { FileUploadService } from 'src/app/services/file-upload.service';
 import { Color } from '../../interfaces/colors.interfaces';
 import { Brand } from '../../models/brand.model';
 import { BrandService } from '../../services/brand.service';
@@ -64,9 +63,7 @@ export class AdminproductosComponent implements OnInit, OnDestroy {
   constructor(private _productService : ProductService,
               private messageService: MessageService, 
               private confirmationService: ConfirmationService,
-              private fb: FormBuilder, 
               private _brandService : BrandService,
-              private  _fileUploadService : FileUploadService,
               private _modalImageService: ModalImagenService
 
   ) { }

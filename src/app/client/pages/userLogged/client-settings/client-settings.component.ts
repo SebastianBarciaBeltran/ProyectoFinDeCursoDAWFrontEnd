@@ -30,6 +30,8 @@ export class ClientSettingsComponent implements OnInit {
   public notificaction : number = 3;
   public showNotificaction : boolean = true;
 
+  public isAdmin = false;
+
 
   constructor(private _userService: UserService,
               private _authService: AuthService,
@@ -48,6 +50,11 @@ export class ClientSettingsComponent implements OnInit {
     if (this.user.birthDate != undefined && this.user.sexo != undefined && this.user.phone != undefined) {
         this.showNotificaction = false;
     } 
+
+    if (this._authService.user.role == 'ADMIN_ROLE') {
+      this.isAdmin = true;
+    }
+
     // DESGLOSAMOS EL BIRTHDATE PARA PODER MOSTRARLO EN EL INPUT
     // console.log(this.user.birthDate )
     // console.log('datebirth:', datebirth);
@@ -62,6 +69,8 @@ export class ClientSettingsComponent implements OnInit {
       phone                  : [ this.user.phone, [Validators.required, Validators.minLength(9), Validators.maxLength(9) ]],
       newsLetter             : [ this.user.newsLetter ],
     });
+
+    
   }
 
   updateUser(){
@@ -72,7 +81,6 @@ export class ClientSettingsComponent implements OnInit {
     } 
 
     this.usuarioActualizar = this.updateForm.value;
-    this.usuarioActualizar.role = this.user.role;
 
     this.confirmationService.confirm({
       message: 'Nombre: ' + this.usuarioActualizar.name + ' Email: ' + 

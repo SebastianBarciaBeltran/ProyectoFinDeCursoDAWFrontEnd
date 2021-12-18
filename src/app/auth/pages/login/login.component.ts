@@ -52,6 +52,7 @@ export class LoginComponent implements OnInit {
 
     this._authService.login( this.loginForm.value )
     .subscribe( ( resp ) => {
+      
           this.backendErrors = false;
 
           if ( this.loginForm.get('remember')?.value ) {
@@ -60,13 +61,16 @@ export class LoginComponent implements OnInit {
             localStorage.removeItem('email');
           }
           this._authService.isLogged.next(true);
-          // Navegamos al home
+
           this._router.navigateByUrl('/es/account/inicio');
 
+
     }, ( err ) => {
+      console.log(err)
         this.backendErrors = true;
         this.backendErrorMsg = err.error.msg;
     });
+
 
   }
 
@@ -104,7 +108,9 @@ export class LoginComponent implements OnInit {
                   this.ngZone.run(()=> {
                     // Navegamos al home
                     this._authService.isLogged.next(true);
+
                     this._router.navigateByUrl('/es/account/inicio');
+
                   })
                 });
 

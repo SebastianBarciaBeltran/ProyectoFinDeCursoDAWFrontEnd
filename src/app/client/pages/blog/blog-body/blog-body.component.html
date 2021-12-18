@@ -1,0 +1,31 @@
+<div class="container bg-secundario my-3">
+    <div class="row">
+        <div class="col d-flex flex-column justify-content-center text-center py-3">
+            <h1 class="px-4 fw-light animate__animated animate__fadeIn">Blog Opti<span class="text-primario">√</span>ista</h1>
+            <p class="px-4 fw-normal fs-5"> ¡Bienvenido a nuestro <span class="text-primario">blog</span>! aquí encontraras consejos y recomendaciones de nuestros profesionales  </p>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+
+    <div class="row">
+        
+        <div class="col-12 d-flex justify-content-center" *ngFor="let blog of blogs" >
+            <div class="card mb-3 w-75 ">
+                <div class="card-body text-center">
+                  <h5 class="card-title">{{ blog.title }} | <span class="animate__animated animate__fadeIn fw-light">Opti<span class="text-primario my-3">√</span>ista</span></h5>
+                  <img  [src]="blog.img | image:'blogs'" [alt]="blog.name" class="img-fluid imgCenter">
+                  <p class="card-text">{{ blog.description }}</p>
+                  <a class="card-text float-end text-primario" [routerLink]="[ '/es/blog/', blog._id ]" >Leer mas..</a>
+                </div>                                        
+            </div>
+        </div>
+          
+
+    </div>
+
+
+
+</div>

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, catchError, map, Observable, of, tap } from 'rxjs';
+import { BehaviorSubject, catchError, delay, map, Observable, of, tap } from 'rxjs';
 
 import { environment } from 'src/environments/environment';
 
@@ -127,7 +127,6 @@ export class AuthService {
     this.isLogged.next(false);
     this.auth2.signOut().then( () => {
       this.ngZone.run(()=> {
-        // this._router.navigateByUrl('/es');
         this._router.navigateByUrl('/es/customer/login');
       })
     });

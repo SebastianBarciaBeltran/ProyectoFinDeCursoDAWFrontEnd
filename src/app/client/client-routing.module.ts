@@ -18,8 +18,10 @@ import { ClientdescuentosComponent }          from './pages/clientdescuentos/cli
 import { ClientbeneficiariosComponent }       from './pages/clientbeneficiarios/clientbeneficiarios.component';
 import { ClientMiSaludComponent }             from './pages/userLogged/client-mi-salud/client-mi-salud.component';
 import { ClientMisCitasComponent }            from './pages/userLogged/client-mis-citas/client-mis-citas.component';
-import { CitasBodyComponent } from './pages/citas/citas-body/citas-body.component';
-import { CitasFechaComponent } from './pages/citas/citas-fecha/citas-fecha.component';
+import { CitasBodyComponent }                 from './pages/citas/citas-body/citas-body.component';
+import { CitasFechaComponent }                from './pages/citas/citas-fecha/citas-fecha.component';
+import { BlogBodyComponent }                  from './pages/blog/blog-body/blog-body.component';
+import { BlogComponent }                      from './pages/blog/blog/blog.component';
 
 
 const routes: Routes = [
@@ -44,17 +46,14 @@ const routes: Routes = [
         // RESERVAS / CITA 
         { path: 'cita/servicio',  component: CitasBodyComponent},
         { path: 'cita/elegir-fecha/:tipo',  component: CitasFechaComponent},
-
-
+        // BLOG 
+        { path: 'blog',  component: BlogBodyComponent},
+        { path: 'blog/:id',  component: BlogComponent},
 
         // CUALQUIER RUTA QUE NO EXISTA LA MANDO AL HOME
         { path: '', redirectTo: 'es', pathMatch: 'full' },
-        
-
-
-
-
        ]
+       
      }
 ]
 

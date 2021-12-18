@@ -23,6 +23,9 @@ import { ClientMisCitasComponent }            from './pages/userLogged/client-mi
 import { ClientMiSaludComponent }             from './pages/userLogged/client-mi-salud/client-mi-salud.component';
 import { CitasBodyComponent }                 from './pages/citas/citas-body/citas-body.component';
 import { CitasFechaComponent }                from './pages/citas/citas-fecha/citas-fecha.component';
+import { BlogBodyComponent } from './pages/blog/blog-body/blog-body.component';
+import { BlogComponent } from './pages/blog/blog/blog.component';
+import { PipesModule } from '../pipes/pipes.module';
 
 
 
@@ -44,14 +47,17 @@ import { CitasFechaComponent }                from './pages/citas/citas-fecha/ci
     ClientMisCitasComponent,
     ClientMiSaludComponent,
     CitasBodyComponent,
-    CitasFechaComponent
+    CitasFechaComponent,
+    BlogBodyComponent,
+    BlogComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     ClientRoutingModule,
     AngularPrimeNgModule,
-    SharedModule
+    SharedModule,
+    PipesModule
   ]
 })
 export class ClientModule { }

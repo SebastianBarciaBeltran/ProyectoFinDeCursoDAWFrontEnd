@@ -66,7 +66,10 @@ color: #D81849 !important;
 .SizeMovileNave{
     font-size: 1.5rem;
 }
-
+.imgCenter{
+       display: block;
+       margin: auto;
+   }
 
 /* table */
 

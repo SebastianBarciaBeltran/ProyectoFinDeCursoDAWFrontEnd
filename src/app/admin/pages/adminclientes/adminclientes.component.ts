@@ -84,7 +84,6 @@ export class AdminclientesComponent implements OnInit {
   }
 
   abrirModal( user : User) {
-    // console.log('user:', user);
     this._modalImageService.abrirModal('users', user.uid || '', user.img );
 }
 

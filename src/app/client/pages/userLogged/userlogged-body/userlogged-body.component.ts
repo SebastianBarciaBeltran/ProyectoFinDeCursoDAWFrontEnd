@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from 'src/app/auth/models/user.model';
 import { AuthService } from 'src/app/auth/services/auth.service';
 
@@ -14,8 +15,11 @@ export class UserloggedBodyComponent implements OnInit {
 
   public notificaction : number = 3;
   public showNotificaction : boolean = true;
-
-  constructor( private _authService: AuthService) {
+  public isAdmin = false;
+  
+  constructor( private _authService: AuthService,
+               private _router : Router
+    ) {
      this.user   = _authService.user;
    }
 
@@ -25,6 +29,12 @@ export class UserloggedBodyComponent implements OnInit {
       } else {
          this.showNotificaction = true;
       }
+
+    // if (this._authService.user.role == 'ADMIN_ROLE') {
+    //   this.isAdmin = true;
+    //   this._router.navigateByUrl('/dashboard');
+
+    // }
   }
 
 

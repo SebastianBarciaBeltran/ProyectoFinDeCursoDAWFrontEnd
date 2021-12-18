@@ -1,0 +1,121 @@
+<div class="py-2">
+
+  <!-- message success primeNG -->
+  <p-toast></p-toast>
+  <!-- message success primeNG -->
+  <!-- LOADING -->
+  <app-loading *ngIf="loading"></app-loading>
+  <!-- LOADING -->
+ 
+  <div class="card p-0" *ngIf="!loading">
+      <p-table #dt [value]="blogs" 
+                   [rows]="5" 
+                   [paginator]="true" 
+                   [globalFilterFields]="['title']" 
+                   responsiveLayout="scroll"
+                   [rowHover]="true" dataKey="id"
+                   currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} " [showCurrentPageReport]="true">
+          <ng-template pTemplate="caption">
+              <div class="p-d-flex p-ai-center p-jc-between">
+                  <h5 class="display-6 fw-light animate__animated animate__fadeIn">Administración de Blog</h5>
+                  <div class="d-flex justify-content-between">
+                      <button pButton pRipple label="BLOG" icon="pi pi-plus" class="p-button-success p-mr-2" (click)="openNew()"></button>
+                      <span class="p-input-icon-left">
+                          <i class="pi pi-search"></i>
+                          <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Search..." />
+                      </span>
+                  </div>
+              </div>
+          </ng-template>
+          <ng-template pTemplate="header">
+              <tr>
+                  <th >Imagen</th>
+                  <th pSortableColumn="title" class="w50" >Título <p-sortIcon field="title"></p-sortIcon>            </th>
+                  <th pSortableColumn="parraf1">        párrafo 1                                           </th>
+                  <th pSortableColumn="parraf2">        párrafo 2                                        </th>
+                  <th pSortableColumn="parraf3">        párrafo 3                                           </th>
+                  <th ></th>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="body" let-blog>
+              <tr>
+                  <td><img (click)="abrirModal(blog)" [src]="blog.img | image:'blogs'" [alt]="blog.name" width="100" class="shadow rounded-3 pointer" /></td>
+                  <td>
+                      <input class="w-100" type="text" pInputText id="title" required [(ngModel)]="blog.title" />
+                  </td>
+                  <!-- <td>
+                      <input class="w-100" type="text" pInputText id="description" required [(ngModel)]="blog.description" />
+                  </td> -->
+                  <td>
+                      <textarea class="w-100" pInputTextarea [(ngModel)]="blog.parraf1" placeholder="{{ blog.parraf1}}"></textarea>
+                  </td>
+                  <td>
+                      <textarea class="w-100" pInputTextarea [(ngModel)]="blog.parraf2" placeholder="{{ blog.parraf2}}"></textarea>
+                  </td>
+                  <td>
+                      <textarea class="w-100" pInputTextarea [(ngModel)]="blog.parraf3" placeholder="{{ blog.parraf3}}"></textarea>
+                  </td>
+                 
+                  <td>
+                      <button pButton type="button" class="p-button-warning p-button-rounded m-1" icon="pi pi-pencil" (click)="guardarCambios( blog )"></button>
+                      <button pButton type="button" class="p-button-danger p-button-rounded  m-1" icon="pi pi-trash"  (click)="deleteBlog(blog)"> </button>
+                  </td>
+              </tr>
+          </ng-template>
+          <ng-template pTemplate="summary">
+              <div class="p-d-flex p-ai-center p-jc-between text-primario">
+                  Hay un total de {{blogs ? blogs.length : 0 }} publicaciones de blog.
+              </div>
+          </ng-template>
+      </p-table>
+  </div>
+
+
+  <p-dialog [(visible)]="blogDialog" [style]="{width: '600px', height:'40vw'}"  header="Crear producto" [modal]="true" styleClass="p-fluid" class="py-5">
+      <ng-template pTemplate="content">
+
+                <div class="p-field mb-1">
+                  <label for="title">Titulo:</label>
+                  <input type="text" pInputText id="title" required [(ngModel)]="blog.title" />
+                  <small class="p-error" *ngIf="submitted && ! blog.title">Campo obligatorio.</small>
+                </div>
+                
+                <div class="p-field mb-1">
+                  <label for="description">Descripción:</label>
+                  <input type="text" pInputText id="description" required [(ngModel)]="blog.description" />
+                  <small class="p-error" *ngIf="submitted && ! blog.description">Campo obligatorio.</small>
+                </div>
+
+                <div class="p-field mb-1">
+                    <label for="subtitle">Subtítulo(opicional): </label>
+                    <input type="text" pInputText id="subtitle" required [(ngModel)]="blog.subtitle" />
+                </div>
+
+                <div class="p-field mb-1">
+                    <label for="parraf1">Párrafo 1(opicional): </label>
+                    <textarea pInputTextarea [(ngModel)]="blog.parraf1"></textarea>
+                </div>
+
+                <div class="p-field mb-1">
+                    <label for="parraf2">Párrafo 2(opicional): </label>
+                    <textarea pInputTextarea [(ngModel)]="blog.parraf2"></textarea>
+                </div>
+
+                <div class="p-field mb-1">
+                    <label for="parraf3">Párrafo 3(opicional): </label>
+                    <textarea pInputTextarea [(ngModel)]="blog.parraf3"></textarea>
+                </div>
+
+      </ng-template>
+  
+      <ng-template pTemplate="footer">
+          <button pButton pRipple label="Cancelar" icon="pi pi-times" class="p-button-text" (click)="hideDialog()"></button>
+          <button pButton pRipple label="Crear" icon="pi pi-check" class="p-button-text" (click)="createBlog()"></button>
+      </ng-template>
+  </p-dialog>
+
+  
+  
+</div>
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>

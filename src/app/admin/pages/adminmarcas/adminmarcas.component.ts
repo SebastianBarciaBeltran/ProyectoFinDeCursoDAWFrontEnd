@@ -1,5 +1,4 @@
 import { Component, EventEmitter, OnDestroy, OnInit }        from '@angular/core';
-import { FormBuilder, Validators }  from '@angular/forms';
 
 import { ConfirmationService } from 'primeng/api';
 import { MessageService }      from 'primeng/api';
@@ -33,7 +32,6 @@ export class AdminmarcasComponent implements OnInit, OnDestroy  {
 
   constructor(private messageService: MessageService, 
               private confirmationService: ConfirmationService,
-              private fb: FormBuilder, 
               private _brandService : BrandService,
               private _modalImageService: ModalImagenService
   ) { }
