@@ -1,0 +1,40 @@
+<div class="container">
+
+    <div class="row my-3">
+
+        <div class="col-12 text-center">
+            <h3 class="display-4 animate__animated animate__fadeIn">Cita Previa</h3>
+            <p class="text-primario fw-bold text-uppercase">servicio</p>            
+            <p class="text-secundario">Selecciona el servicio que necesitas</p>
+        </div>
+
+    </div>
+
+
+    <div class="row mb-5">
+        <div class="col-sm-6 my-2">
+
+          <div class="card  btn-outline-primario d-flex flex-column align-items-center justify-content-center hcitas">
+              <img src="assets/images/services/eye.png" alt="">
+              <h5 class="card-title text-uppercase">Revisión vista</h5>
+              <p class="card-text fw-light">Hazte una revisión visual</p>
+              <a [routerLink]="['/es/cita/elegir-fecha','vista']" class="btn btn-sm btn-primario text-uppercase">seleccionar servicio</a>
+          </div>
+
+        </div>
+       
+        <div class="col-sm-6 my-2">
+
+          <div class="card text-center btn-outline-primario d-flex flex-column align-items-center justify-content-center d-flex hcitas">
+              <img src="assets/images/services/contact-lens.png" alt="">
+              <h5 class="card-title text-uppercase">Prueba de lentillas</h5>
+              <p class="card-text fw-light">Primara vez con lentes de contacto o adaptación</p>
+              <a [routerLink]="['/es/cita/elegir-fecha','lentillas']" class="btn btn-sm btn-primario text-uppercase">seleccionar servicio</a>
+          </div>
+        </div>
+
+        
+        
+    </div>
+    
+</div>

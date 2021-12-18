@@ -29,12 +29,7 @@ export class FileUploadService {
     }
   }
 
-  async actualizarFoto(
-    archivo: File,
-    tipo: 'users'|'products'|'brands',
-    id: string
-  ) {
-
+  async actualizarFoto( archivo: File,tipo: 'users'|'products'|'brands',  id: string ) {
     try {
 
       const url = `${ base_url }/uploads/${ tipo }/${ id }`;
@@ -58,7 +53,6 @@ export class FileUploadService {
         return false;
       }
 
-      
       console.log('data:', data);
 
       // console.log( resp );

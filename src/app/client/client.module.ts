@@ -21,6 +21,9 @@ import { GafasDestacadasComponent }           from './components/gafas-destacada
 import { MarcasComponent }                    from './components/marcas/marcas.component';
 import { ClientMisCitasComponent }            from './pages/userLogged/client-mis-citas/client-mis-citas.component';
 import { ClientMiSaludComponent }             from './pages/userLogged/client-mi-salud/client-mi-salud.component';
+import { CitasBodyComponent }                 from './pages/citas/citas-body/citas-body.component';
+import { CitasFechaComponent }                from './pages/citas/citas-fecha/citas-fecha.component';
+
 
 
 @NgModule({
@@ -39,14 +42,16 @@ import { ClientMiSaludComponent }             from './pages/userLogged/client-mi
     GafasDestacadasComponent,
     MarcasComponent,
     ClientMisCitasComponent,
-    ClientMiSaludComponent
+    ClientMiSaludComponent,
+    CitasBodyComponent,
+    CitasFechaComponent
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
     ClientRoutingModule,
     AngularPrimeNgModule,
-    SharedModule,
+    SharedModule
   ]
 })
 export class ClientModule { }

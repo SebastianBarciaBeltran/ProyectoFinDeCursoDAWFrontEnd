@@ -1,0 +1,41 @@
+
+<div class="container">
+
+    <div class="row my-3">
+
+        <div class="col-12 text-center">
+            <h3 class="display-4 animate__animated animate__fadeIn">Cita Previa</h3>
+            <p class="text-primario fw-bold text-uppercase">Día y hora</p>            
+            <p class="text-secundario">¿Cuando te gustaría venir?</p>
+        </div>
+
+    </div>
+
+
+    <div class="row mb-5">
+        <div class="col-sm-6 my-2">
+
+          <div class="col-sm-6">
+            <div class="d-flex flex-column align-items-center justify-content-center">
+                <p-calendar [(ngModel)]="hoy" [inline]="true" [showWeek]="true"></p-calendar>
+            </div>
+          </div>
+
+        </div>
+       
+        <div class="col-sm-6 my-2">
+
+          <div class="d-flex flex-column justify-content-center">
+              <p class="card-text fw-light">Elige hora: </p>
+              <div class="text-center">
+                <p class="text-primario fw-bold text-uppercase">{{ hoy | date: 'EEEE d'}}</p>   
+              </div>
+          </div>
+
+        </div>
+
+        
+        
+    </div>
+    
+</div>

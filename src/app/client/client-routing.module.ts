@@ -18,6 +18,8 @@ import { ClientdescuentosComponent }          from './pages/clientdescuentos/cli
 import { ClientbeneficiariosComponent }       from './pages/clientbeneficiarios/clientbeneficiarios.component';
 import { ClientMiSaludComponent }             from './pages/userLogged/client-mi-salud/client-mi-salud.component';
 import { ClientMisCitasComponent }            from './pages/userLogged/client-mis-citas/client-mis-citas.component';
+import { CitasBodyComponent } from './pages/citas/citas-body/citas-body.component';
+import { CitasFechaComponent } from './pages/citas/citas-fecha/citas-fecha.component';
 
 
 const routes: Routes = [
@@ -39,6 +41,11 @@ const routes: Routes = [
         { path: 'account/mi-salud',  component: ClientMiSaludComponent,   canActivate: [AuthGuard]},
         { path: 'account/mis-citas',  component: ClientMisCitasComponent, canActivate: [AuthGuard]},
         { path: 'account/settings',  component: ClientSettingsComponent,  canActivate: [AuthGuard]},
+        // RESERVAS / CITA 
+        { path: 'cita/servicio',  component: CitasBodyComponent},
+        { path: 'cita/elegir-fecha/:tipo',  component: CitasFechaComponent},
+
+
 
         // CUALQUIER RUTA QUE NO EXISTA LA MANDO AL HOME
         { path: '', redirectTo: 'es', pathMatch: 'full' },
