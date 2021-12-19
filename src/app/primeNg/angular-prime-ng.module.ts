@@ -26,6 +26,9 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { PaginatorModule     } from 'primeng/paginator';
 import { ColorPickerModule   } from 'primeng/colorpicker';
 import { FullCalendarModule } from 'primeng/fullcalendar';
+
+import {MessagesModule} from 'primeng/messages';
+import {MessageModule} from 'primeng/message';
 // PROVIDERS
 import { ConfirmationService } from 'primeng/api';
 import { MessageService } from 'primeng/api';
@@ -57,7 +60,9 @@ import { MessageService } from 'primeng/api';
     BadgeModule,
     FieldsetModule,
     AccordionModule,
-    FullCalendarModule
+    FullCalendarModule,
+    MessagesModule,
+    MessageModule
   ],
   providers:[
     MessageService, ConfirmationService

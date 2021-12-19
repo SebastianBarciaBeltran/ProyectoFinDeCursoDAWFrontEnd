@@ -1,6 +1,7 @@
-
 <div class="container">
-
+    <!-- message success primeNG -->
+    <p-toast></p-toast>
+    <!-- message success primeNG -->
     <div class="row my-3">
 
         <div class="col-12 text-center">
@@ -13,29 +14,54 @@
 
 
     <div class="row mb-5">
-        <div class="col-sm-6 my-2">
+      <div class="alert alert-info" role="alert" *ngIf="showInfo">
+        Por favor, escoga la fecha y la hora en la que desea solicitar cita previa
+      </div>
+        <div class="col-12 col-md-4 my-2 text-sm-center text-none">
 
-          <div class="col-sm-6">
-            <div class="d-flex flex-column align-items-center justify-content-center">
-                <p-calendar [(ngModel)]="fecha" [inline]="true" [showWeek]="false" selectionMode="single" (click)="fechaSeleccionada( fecha )"></p-calendar>
-            </div>
-          </div>
+                <p-calendar [(ngModel)]="today"
+                            [inline]="true" 
+                            [showWeek]="false" 
+                            selectionMode="single"
+                            [minDate]="mindate" 
+                            >
+                </p-calendar>
 
         </div>
        
-        <div class="col-sm-6 my-2">
-
-          <div class="d-flex flex-column justify-content-center">
-              <p class="card-text fw-light">Elige hora: </p>
-              <div class="text-center">
-                <p class="text-primario fw-bold text-uppercase">{{ fecha | date: 'EEEE d'}}</p>   
-              </div>
-          </div>
-
+        <div class="col-12 col-md-4 my-2 text-center">
+              <p class="card-text fw-light fs-5">Elige hora: </p>
+              <p-dropdown [options]="horas" [(ngModel)]="horaSeleccionada" optionLabel="hora" optionValue="hora" placeholder="Seleccione una hora"></p-dropdown>
         </div>
+
+        <div class="col-12 col-md-4 text-center animate__animated animate__fadeI">
+          <p class="text-dark fs-5 fw-light text-uppercase">Ha seleccionado: Cita para revisón {{ tipo }} <span class="text-primario fw-normal" *ngIf="today && horaSeleccionada">{{ today | date}} a las {{ hora }}</span></p>
+         
+
+
+          <div *ngIf="today && horaSeleccionada">
+          <p class="animate__animated animate__fadeIn tex-light fw-light fs-5">Rellene los siguientes campos:</p>
+          <input id="float-input" type="text" pInputText [(ngModel)]="title" placeholder="Nombre completo"> 
+          <br><small class="p-error" *ngIf="submitted && !title" >Campo obligatorio</small>
+          <br>
+          <br>
+          <input id="float-input" type="text" pInputText [(ngModel)]="phone" placeholder="Télefono"> 
+          <br><small class="p-error" *ngIf="submitted && !phone ">Campo obligatorio </small>
+          <br>
+          <br>
+          <button class="btn btn-warning mx-1" (click)="cancelar()">Cancelar</button>
+          <button class="btn btn-primario mx-1" (click)="pedirCita()">Enviar</button>
+          </div>
+        </div>
+        
+        <!-- <div class="col-12 col-md-4 my-2 text-center">
+      
+        </div> -->
 
         
         
     </div>
     
 </div>
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>

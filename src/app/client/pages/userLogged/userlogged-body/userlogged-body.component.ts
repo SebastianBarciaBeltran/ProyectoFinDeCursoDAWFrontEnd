@@ -33,8 +33,12 @@ export class UserloggedBodyComponent implements OnInit {
     // if (this._authService.user.role == 'ADMIN_ROLE') {
     //   this.isAdmin = true;
     //   this._router.navigateByUrl('/dashboard');
-
     // }
+
+    if (this._authService.user.role == 'ADMIN_ROLE') {
+        this.isAdmin = true;
+    }
+    
   }
 
 
