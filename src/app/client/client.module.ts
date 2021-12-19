@@ -26,6 +26,8 @@ import { CitasFechaComponent }                from './pages/citas/citas-fecha/ci
 import { BlogBodyComponent } from './pages/blog/blog-body/blog-body.component';
 import { BlogComponent } from './pages/blog/blog/blog.component';
 import { PipesModule } from '../pipes/pipes.module';
+import { ClientproductsComponent } from './pages/clientproducts/clientproducts.component';
+import { ClientproductComponent } from './pages/clientproduct/clientproduct.component';
 
 
 
@@ -49,7 +51,9 @@ import { PipesModule } from '../pipes/pipes.module';
     CitasBodyComponent,
     CitasFechaComponent,
     BlogBodyComponent,
-    BlogComponent
+    BlogComponent,
+    ClientproductsComponent,
+    ClientproductComponent
   ],
   imports: [
     CommonModule,

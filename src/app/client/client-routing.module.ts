@@ -22,6 +22,7 @@ import { CitasBodyComponent }                 from './pages/citas/citas-body/cit
 import { CitasFechaComponent }                from './pages/citas/citas-fecha/citas-fecha.component';
 import { BlogBodyComponent }                  from './pages/blog/blog-body/blog-body.component';
 import { BlogComponent }                      from './pages/blog/blog/blog.component';
+import { ClientproductsComponent } from './pages/clientproducts/clientproducts.component';
 
 
 const routes: Routes = [
@@ -49,6 +50,8 @@ const routes: Routes = [
         // BLOG 
         { path: 'blog',  component: BlogBodyComponent},
         { path: 'blog/:id',  component: BlogComponent},
+        // PRODUCTS
+        { path: 'products',  component: ClientproductsComponent},
 
         // CUALQUIER RUTA QUE NO EXISTA LA MANDO AL HOME
         { path: '', redirectTo: 'es', pathMatch: 'full' },

@@ -26,6 +26,13 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
 import { PaginatorModule     } from 'primeng/paginator';
 import { ColorPickerModule   } from 'primeng/colorpicker';
 import { FullCalendarModule } from 'primeng/fullcalendar';
+import {DataViewModule} from 'primeng/dataview';
+
+
+import {PanelModule} from 'primeng/panel';
+
+import {RippleModule} from 'primeng/ripple';
+
 
 import {MessagesModule} from 'primeng/messages';
 import {MessageModule} from 'primeng/message';
@@ -62,7 +69,10 @@ import { MessageService } from 'primeng/api';
     AccordionModule,
     FullCalendarModule,
     MessagesModule,
-    MessageModule
+    MessageModule,
+    DataViewModule,
+    PanelModule,
+    RippleModule
   ],
   providers:[
     MessageService, ConfirmationService

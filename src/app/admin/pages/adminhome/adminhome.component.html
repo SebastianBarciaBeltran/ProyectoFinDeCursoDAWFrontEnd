@@ -35,8 +35,8 @@
                 <ng-template pTemplate="header">
                     <tr>
                         <th class="w100" pSortableColumn="title">title<p-sortIcon field="title"></p-sortIcon></th>
-                        <th class="w100" pSortableColumn="start">Fecha<p-sortIcon field="start"></p-sortIcon></th>
                         <th class="w100" pSortableColumn="phone">Télefono<p-sortIcon field="phone"></p-sortIcon></th>
+                        <th class="w100" pSortableColumn="start">Fecha<p-sortIcon field="start"></p-sortIcon></th>
                         <th class="w100" pSortableColumn="tipo">Tipo de cita<p-sortIcon field="tipo"></p-sortIcon></th>
                         <th class="w100" ></th>
                     </tr>
@@ -50,7 +50,7 @@
                             <span class="badge  bg-danger"   *ngIf="cita.tipo  == 'vista'">Revisón vista</span>
                             <span class="badge  bg-warning"  *ngIf="cita.tipo != 'vista'">Prueba Lentillas</span>
                         </td>
-                        
+                        <a [routerLink]="[ '/path', routeParam ]">name</a>
                         <td>
                             <button pButton pRipple icon="pi pi-trash"  class="p-button-rounded p-button-danger  m-1" (click)="deleteCita( cita )" ></button>
                         </td>

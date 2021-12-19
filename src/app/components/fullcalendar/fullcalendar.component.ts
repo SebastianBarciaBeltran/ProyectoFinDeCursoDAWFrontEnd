@@ -20,7 +20,12 @@ export class FullcalendarComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.getEvents();
+
+    this._citasServices.getCitas()
+          .subscribe( resp => {
+            this.events = resp;
+          });
+   
     this.options = {
       plugins: [dayGridPlugin, interactionPlugin, timeGridPlugin],
       defaultDate: new Date(),
@@ -40,11 +45,11 @@ export class FullcalendarComponent implements OnInit {
   }
 
 
-  getEvents(){
-      this._citasServices.getCitas()
-          .subscribe( resp => {
-            this.events = resp;
-          });
-  }
+  // getEvents(){
+  //     this._citasServices.getCitas()
+  //         .subscribe( resp => {
+  //           this.events = resp;
+  //         });
+  // }
 
 }
