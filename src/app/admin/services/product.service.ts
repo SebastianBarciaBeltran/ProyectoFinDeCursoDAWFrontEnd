@@ -76,6 +76,17 @@ export class ProductService {
 
  }
 
+ getAllTipo(tipo : string){
+    
+  const url = `${ base_url }/products/${ tipo }`;
+
+  return this._http.get<{ ok: boolean, products: Product[] }>( url )
+         .pipe(
+           map( (resp: { ok: boolean, products: Product[] }) => resp.products)
+         );
+
+}
+
 
 
 

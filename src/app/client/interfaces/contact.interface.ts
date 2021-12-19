@@ -3,9 +3,3 @@ export interface ContactResponse {
     msg     ?: string;
 }
 
-export interface Contact {
-    name         : string;
-    telephone    : string;
-    email        : string;
-    text         : string;
-}

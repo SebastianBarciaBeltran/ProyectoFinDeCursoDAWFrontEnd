@@ -122,6 +122,18 @@ export class AuthService {
 
   }
 
+  
+  updateUser( data: { name: string, email:string, birthDate:Date, sexo: string, phone: string, newsLetter : boolean, role: string }){
+
+    data = {
+      ...data,
+      role: this.user.role
+    }
+      
+    return this._http.put(`${ base_url }/users/${ this.uid }`, data, this.headers);
+
+  }
+
   logout(){
     localStorage.removeItem('token');
     this.isLogged.next(false);

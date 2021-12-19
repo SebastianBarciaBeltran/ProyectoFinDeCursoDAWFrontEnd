@@ -27,8 +27,6 @@ import { BlogBodyComponent } from './pages/blog/blog-body/blog-body.component';
 import { BlogComponent } from './pages/blog/blog/blog.component';
 import { PipesModule } from '../pipes/pipes.module';
 import { ClientproductsComponent } from './pages/clientproducts/clientproducts.component';
-import { ClientproductComponent } from './pages/clientproduct/clientproduct.component';
-
 
 
 @NgModule({
@@ -52,8 +50,7 @@ import { ClientproductComponent } from './pages/clientproduct/clientproduct.comp
     CitasFechaComponent,
     BlogBodyComponent,
     BlogComponent,
-    ClientproductsComponent,
-    ClientproductComponent
+    ClientproductsComponent
   ],
   imports: [
     CommonModule,

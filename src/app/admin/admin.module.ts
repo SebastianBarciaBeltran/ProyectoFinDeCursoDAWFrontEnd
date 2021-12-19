@@ -16,6 +16,7 @@ import { AdminproductosComponent }  from './pages/adminproductos/adminproductos.
 import { AngularMaterialModule }    from '../material/angular-material.module';
 import { AdminnewsletterComponent } from './pages/adminnewsletter/adminnewsletter.component';
 import { AdminblogComponent } from './pages/adminblog/adminblog.component';
+import { AdmincontactComponent } from './pages/admincontact/admincontact.component';
 
 
 
@@ -27,7 +28,8 @@ import { AdminblogComponent } from './pages/adminblog/adminblog.component';
     AdminclientesComponent,
     AdminproductosComponent,
     AdminnewsletterComponent,
-    AdminblogComponent
+    AdminblogComponent,
+    AdmincontactComponent
   ],
   exports:[
     AdminBodyComponent

@@ -8,7 +8,7 @@ export class Cita{
         public color : string,
         public tipo  : string,
         public phone : string,
-        public _id  ?: string,
+        public _id   ?: string,
         
     ){}
 

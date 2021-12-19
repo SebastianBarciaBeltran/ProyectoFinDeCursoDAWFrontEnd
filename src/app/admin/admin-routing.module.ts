@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminBodyComponent } from './pages/admin-body/admin-body.component';
 import { AdminblogComponent } from './pages/adminblog/adminblog.component';
 import { AdminclientesComponent } from './pages/adminclientes/adminclientes.component';
+import { AdmincontactComponent } from './pages/admincontact/admincontact.component';
 import { AdminhomeComponent } from './pages/adminhome/adminhome.component';
 import { AdminmarcasComponent } from './pages/adminmarcas/adminmarcas.component';
 import { AdminnewsletterComponent } from './pages/adminnewsletter/adminnewsletter.component';
@@ -21,7 +22,8 @@ const routes: Routes = [
        { path: 'products',   component: AdminproductosComponent },
        { path: 'users',      component: AdminclientesComponent },
        { path: 'newsletter', component: AdminnewsletterComponent },
-       { path: 'blog', component: AdminblogComponent },
+       { path: 'blog',       component: AdminblogComponent },
+       { path: 'contact',    component: AdmincontactComponent },
     ]
 
   }

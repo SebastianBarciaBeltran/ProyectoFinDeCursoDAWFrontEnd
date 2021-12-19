@@ -89,7 +89,7 @@ export class ClientSettingsComponent implements OnInit {
       header: 'Por favor, confirme los nuevos datos actualizar:',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this._userService.updateUser(this.updateForm.value)
+        this._authService.updateUser(this.updateForm.value)
         .subscribe( (resp) => {
           this.backendErrors = false;
           this.showNotificaction = false;
@@ -105,7 +105,6 @@ export class ClientSettingsComponent implements OnInit {
   }
 
   cambiarImagen( file : File ){
-    console.log(file);
     this.imagenSubir = file;
 
     if ( !file ) { 

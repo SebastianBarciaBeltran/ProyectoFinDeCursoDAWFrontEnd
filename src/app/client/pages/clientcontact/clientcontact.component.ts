@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
-import { Contact } from '../../interfaces/contact.interface';
+
 
 import { ConfirmationService } from 'primeng/api';
 import { MessageService }      from 'primeng/api';
+import { Contact } from 'src/app/admin/models/contact.model';
 import { NodemailerService } from '../../services/nodemailer.service';
 
 @Component({

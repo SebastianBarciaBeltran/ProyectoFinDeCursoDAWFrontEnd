@@ -20,10 +20,10 @@ export class UserloggedBodyComponent implements OnInit {
   constructor( private _authService: AuthService,
                private _router : Router
     ) {
-     this.user   = _authService.user;
-   }
-
-  ngOnInit(): void {
+    }
+    
+    ngOnInit(): void {
+        this.user   = this._authService.user;
       if (this.user.birthDate != undefined && this.user.sexo != undefined && this.user.phone != undefined) {
         this.showNotificaction = false;
       } else {

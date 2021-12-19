@@ -52,7 +52,7 @@ const routes: Routes = [
         { path: 'blog/:id',  component: BlogComponent},
         // PRODUCTS
         { path: 'products',  component: ClientproductsComponent},
-
+        { path: 'products/:tipo',  component: ClientproductsComponent},
         // CUALQUIER RUTA QUE NO EXISTA LA MANDO AL HOME
         { path: '', redirectTo: 'es', pathMatch: 'full' },
        ]

@@ -44,6 +44,11 @@
                 <span>NewsLetters</span>
             </a>
 
+            <a routerLink="contact" mat-list-item (click)="sidenav.toggle()">
+                <i class="bi bi-people mx-1"></i>
+                <span>Personas a contactar</span>
+            </a> 
+
             <a [routerLink]="['/es/account/settings']" mat-list-item (click)="sidenav.toggle()">
                 <i class="bi bi-gear-wide-connected mx-1"></i>
                 <span>Ajustes</span>

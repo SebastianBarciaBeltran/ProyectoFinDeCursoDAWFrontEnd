@@ -27,10 +27,7 @@ import { PaginatorModule     } from 'primeng/paginator';
 import { ColorPickerModule   } from 'primeng/colorpicker';
 import { FullCalendarModule } from 'primeng/fullcalendar';
 import {DataViewModule} from 'primeng/dataview';
-
-
 import {PanelModule} from 'primeng/panel';
-
 import {RippleModule} from 'primeng/ripple';
 
 
@@ -72,7 +69,8 @@ import { MessageService } from 'primeng/api';
     MessageModule,
     DataViewModule,
     PanelModule,
-    RippleModule
+    RippleModule,
+    
   ],
   providers:[
     MessageService, ConfirmationService

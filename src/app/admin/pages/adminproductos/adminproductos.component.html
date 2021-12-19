@@ -70,7 +70,7 @@
                         <p-dropdown [(ngModel)]="product.gender" inputId="gender" required="true" [options]="genders" placeholder="{{ product.gender }}"></p-dropdown>
                     </td>
                     <td>
-                        <p-dropdown [(ngModel)]="product.brand" inputId="brand" required="true" [options]="brands" optionLabel="name" optionValue="_id" placeholder="{{ product.brand.name }}"></p-dropdown>
+                        <p-dropdown [(ngModel)]="product.brand" inputId="brand" required="true" [options]="brands"  optionLabel="name" optionValue="_id" placeholder="{{ product.brand.name }}"></p-dropdown>
                     </td>
                     <td>
                         <button pButton type="button" class="p-button-warning p-button-rounded m-1" icon="pi pi-pencil" (click)="guardarCambios(product)"></button>

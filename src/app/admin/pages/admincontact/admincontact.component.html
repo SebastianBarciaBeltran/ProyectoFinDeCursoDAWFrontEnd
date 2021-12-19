@@ -1,7 +1,4 @@
-<app-fullcalendar></app-fullcalendar>
 
-
-<div class="container">
 
     <div class="container-fluid py-2">
 
@@ -13,7 +10,7 @@
         <!-- LOADING -->
        
         <div class="card p-0" *ngIf="!loading">
-            <p-table #dt [value]="citas" 
+            <p-table #dt [value]="contacts" 
                          [rows]="5" 
                          [paginator]="true" 
                          [globalFilterFields]="['title','tipo']" 
@@ -34,24 +31,23 @@
                 </ng-template>
                 <ng-template pTemplate="header">
                     <tr>
-                        <th class="w100" pSortableColumn="title">title<p-sortIcon field="title"></p-sortIcon></th>
-                        <th class="w100" pSortableColumn="phone">Télefono<p-sortIcon field="phone"></p-sortIcon></th>
-                        <th class="w100" pSortableColumn="start">Fecha<p-sortIcon field="start"></p-sortIcon></th>
-                        <th class="w100" pSortableColumn="tipo">Tipo de cita<p-sortIcon field="tipo"></p-sortIcon></th>
+                        <th class="w100" pSortableColumn="name">Nombre<p-sortIcon field="name"></p-sortIcon></th>
+                        <th class="w100" pSortableColumn="telephone">Télefono<p-sortIcon field="telephone"></p-sortIcon></th>
+                        <th class="w100" pSortableColumn="email">email<p-sortIcon field="email"></p-sortIcon></th>
+                        <th class="w100" pSortableColumn="text">text<p-sortIcon field="text"></p-sortIcon></th>
+                        <th class="w100" pSortableColumn="dateOfContact">Fecha contacto<p-sortIcon field="dateOfContact"></p-sortIcon></th>
                         <th class="w100" ></th>
                     </tr>
                 </ng-template>
-                <ng-template pTemplate="body" let-cita>
+                <ng-template pTemplate="body" let-contact>
                     <tr>
-                        <td>{{ cita.title }} </td>
-                        <td>{{ cita.phone }} </td>
-                        <td>{{ cita.start | date }} </td>
-                        <td>
-                            <span class="badge  bg-danger"   *ngIf="cita.tipo  == 'vista'">Revisón vista</span>
-                            <span class="badge  bg-warning"  *ngIf="cita.tipo != 'vista'">Prueba Lentillas</span>
-                        </td>
-                        <td>
-                            <button pButton pRipple icon="pi pi-trash"  class="p-button-rounded p-button-danger  m-1" (click)="deleteCita( cita )" ></button>
+                        <td class="w100">{{ contact.name }} </td>
+                        <td class="w100">{{ contact.telephone }} </td>
+                        <td class="w100">{{ contact.email }} </td>
+                        <td class="w100">{{ contact.text }} </td>
+                        <td class="w100">{{ contact.dateOfContact | date }} </td>
+                        <td class="w100">
+                            <button pButton pRipple icon="pi pi-trash"  class="p-button-rounded p-button-danger  m-1" (click)="deleteContact( contact )" ></button>
                         </td>
                     </tr>
                 </ng-template>
@@ -68,4 +64,8 @@
     
     <p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
     
-</div>
+
+
+
+
+                        
