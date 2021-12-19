@@ -48,6 +48,10 @@ export class AuthService {
     }
   }
 
+  get role(): string{
+      return this.user.role ;
+  }
+
    getisLogged(): Observable<boolean> {
 
       return this.isLogged;
@@ -113,7 +117,7 @@ export class AuthService {
         // this.user = new User(name, email, role, newsLetter, '', dateOfRegister, img, google, '', '', '', uid );
         this.user = new User(name, email, role, newsLetter, '' , dateOfRegister, img, google, birthDate, phone, sexo, uid );
         localStorage.setItem('token', resp.token );
-       
+     
         return true;
       }),
       catchError( err => of( false ))

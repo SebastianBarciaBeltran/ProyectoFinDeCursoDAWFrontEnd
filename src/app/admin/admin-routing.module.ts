@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminGuard } from '../guards/admin.guard';
 
 import { AdminBodyComponent } from './pages/admin-body/admin-body.component';
 import { AdminblogComponent } from './pages/adminblog/adminblog.component';
@@ -15,8 +16,9 @@ const routes: Routes = [
   {
     path: '',
     component: AdminBodyComponent,
+    canActivate: [AdminGuard],
     children: [
-       { path: '',           component: AdminhomeComponent },
+       { path: '',           component: AdminhomeComponent, },
        { path: 'home',       component: AdminhomeComponent },
        { path: 'brands',     component: AdminmarcasComponent },
        { path: 'products',   component: AdminproductosComponent },
